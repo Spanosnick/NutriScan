@@ -1,4 +1,14 @@
+:root{
+  --primary-color: #1061EB;
+  --primary-black: #023da2;
+  --secondary-color: #10A6EB;
+  --third-color: #10EBEB;
+  --fourth-color: #5FEBEB;
+  --five-color: #10EBA1;
+  --six-color: #10EBA1;
+  --seven-color: #10EB56;
 
+}
 .App {
  background-color: rgba(113, 179, 245, 0.53);
   min-height: 100vh;

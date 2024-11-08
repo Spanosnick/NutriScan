@@ -1,0 +1,67 @@
+
+.heroSection{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 80vh;
+
+}
+
+.heroBasic{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.heroBasic h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.7rem;
+    font-weight: 700;
+    color: var(--primary-black);
+    margin: 0;
+}
+
+.heroBasic h2 span {
+    /*color: #10EBA1;*/
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+.heroBasic p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 1rem 0;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+.heroBasic a{
+    background-color: var(--primary-black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem 1rem;
+    border-radius:25px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+}
+.heroBasic a:hover{
+    background-color: var(--seven-color);
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
