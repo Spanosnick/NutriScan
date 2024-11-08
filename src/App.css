@@ -1,5 +1,10 @@
+
 .App {
-  text-align: center;
+ background-color: rgba(113, 179, 245, 0.53);
+  min-height: 100vh;
+}
+*{
+  transition: all 0.3s ease;
 }
 
 .App-logo {
@@ -36,3 +41,4 @@
     transform: rotate(360deg);
   }
 }
+
