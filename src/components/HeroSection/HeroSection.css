@@ -1,12 +1,14 @@
 
 .heroSection{
-    padding: 2rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    min-height: 80vh;
-
+    min-height: calc(100vh - 92px);
+    position: relative;
 }
 
 .heroBasic{
@@ -19,31 +21,29 @@
 .heroBasic h2{
     font-family: 'Poppins', sans-serif;
     font-size: 2.7rem;
-    font-weight: 700;
-    color: var(--primary-black);
+    font-weight: 600;
+    color: white;
     margin: 0;
 }
 
 .heroBasic h2 span {
-    /*color: #10EBA1;*/
-    color: white;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    color: var(--secondary-color);
+    text-shadow: 0 0 25px rgba(0, 0, 0, 0.46);
 }
 .heroBasic p{
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:white;
     margin: 1rem 0;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
 .heroBasic a{
-    background-color: var(--primary-black);
+    background-color: var(--secondary-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
     color: white;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     padding: 0.5rem 1rem;
-    border-radius:25px;
+    border-radius:5px;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -72,38 +72,59 @@
     align-items: center;
 }
 .heroSecond img{
-    width: 90%;
-    max-height: 600px;
-    aspect-ratio: 1/2;
+    width: 100%;
+    max-height: 500px;
+    margin: 20px auto;
 
-    border-radius: 15px;
+z-index: 1;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
 }
-@media screen and (max-width: 900px){
+
+@media only screen and (max-width: 1440px){
+.heroSection{
+    width: 95%;
+}
+
+}
+
+@media only screen and (max-width: 1152px){
+    .heroSection{
+
+    }
+
+}
+
+@media only screen and (max-width: 768px){
     .heroSection{
         padding: 1rem;
+
+        min-height: 70vh;
     }
     .heroBasic{
         width: 100%;
+        text-align: center;
     }
     .heroSecond{
-        display: none;
+        width: 100%;
+
+        text-align: center;
     }
 
-}
-@media screen and (max-width: 770px){
-   .heroSection{
-       min-height: 70vh;
-   }
     .heroBasic h2{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     .heroBasic p{
         font-size: 1.3rem;
     }
-
+    .heroBasic a{
+        display: inline-block;
+        margin: 0 auto;
+    }
 }
-@media screen and (max-width: 400px){
+
+@media only screen and (max-width: 320px) {
+
     .heroSection{
         min-height: 60vh;
     }
@@ -124,5 +145,5 @@
         margin: 1rem auto;
 
     }
-
 }
+

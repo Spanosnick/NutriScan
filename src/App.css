@@ -1,18 +1,49 @@
 :root{
-  --primary-color: #1061EB;
-  --primary-black: #023da2;
-  --secondary-color: #10A6EB;
+  --primary-color: #043873;
+  --secondary-color: #4F9CF9;
+  --primary-black: #02244b;
   --third-color: #10EBEB;
   --fourth-color: #5FEBEB;
   --five-color: #10EBA1;
   --six-color: #10EBA1;
   --seven-color: #10EB56;
+}
+/*1920px*/
+/*1440px*/
+/*1152px*/
+/*768px*/
+/*320px*/
+.App {
+  background-color: var(--primary-color);
+}
+.heroBasic{
+  width: 50%;
+}
+.heroSecond{
+  width: 50%;
+}
+
+@media only screen and (max-width: 1920px){
 
 }
-.App {
- background-color: rgba(113, 179, 245, 0.53);
-  min-height: 100vh;
+
+@media only screen and (max-width: 1440px){
+
 }
+
+@media only screen and (max-width: 1152px){
+
+}
+
+@media only screen and (max-width: 768px){
+
+}
+
+@media only screen and (max-width: 320px) {
+
+}
+
+
 *{
   transition: all 0.3s ease;
 }
