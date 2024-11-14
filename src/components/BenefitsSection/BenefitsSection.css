@@ -1,0 +1,93 @@
+.benefits-section{
+    padding: 50px 0;
+    text-align: center;
+
+}
+.benefits_title{
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.benefits_benefits{
+    width: 90%;
+    margin: 0 auto;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/*Benefit Card CSS START*/
+.benefit_card{
+    width: 45%;
+    min-height: 230px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 30px;
+    transition: 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+.benefit_icon{
+    width: 45px;
+    height: 45px;
+
+    color:var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+
+    /*color: white;*/
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+    position: absolute;
+    top: 0;
+    right: 3px;
+
+}
+.benefit_title{
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+}
+.benefit_description{
+    font-size: 17px;
+    color: #666;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.14);
+}
+.benefit_card:hover{
+    background-color: var(--secondary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.benefit_card:hover .benefit_title, .benefit_card:hover .benefit_description, .benefit_card:hover .benefit_icon{
+    color: white;
+}
+
+@media only screen and (max-width: 1152px) {
+    .benefit_card {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+
+}
+@media only screen and (max-width: 320px) {
+    .benefit_title{
+        font-size: 18px;
+
+    }
+    .benefit_description{
+        font-size: 14px;
+
+    }
+}
+
+
+/*Benefit Card CSS END*/
