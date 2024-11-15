@@ -56,6 +56,11 @@
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.34);
     cursor: pointer;
 }
+.cta_form button:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+
+}
 .returnMessage{
     width: 80%;
     margin: 0 auto;
