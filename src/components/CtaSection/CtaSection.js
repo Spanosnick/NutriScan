@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import './CtaSection.css';
 
 export function CtaSection() {
-    const [disabled, setDisabled] = useState(true);
-    const [email, setEmail] = useState('');
+    const [disabled, setDisabled] = useState(false);
+    const [email, setEmail] = useState('test@gmail.com');
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -22,6 +22,8 @@ export function CtaSection() {
                 const response = await fetch('https://nickport.com/save_email.php', {
                     method: 'POST',
                     headers: {
+                       "Access-Control-Allow-Headers": "*",
+                        "Access-Control-Allow-Origin": "*",
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ email }),

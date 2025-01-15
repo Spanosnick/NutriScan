@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.css";
+import {Link, NavLink} from "react-router-dom";
+
 
 export function Header() {
     return (
@@ -11,6 +13,7 @@ export function Header() {
                 <a  href='#about'>Τί είναι </a>
                 <a href='#benefits'>Πως Βοηθάει </a>
                 <a href='#contact'>Επικοινωνία</a>
+                <NavLink className='loginBtn' to={'login'}>Σύνδεση</NavLink>
                 {/*<a className='cta'  href='#login'>Σύνδεση</a>*/}
             </div>
         </div>

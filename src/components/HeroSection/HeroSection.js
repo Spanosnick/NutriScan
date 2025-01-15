@@ -1,7 +1,6 @@
 import React from "react";
 import "./HeroSection.css";
 import PeopleFood from "../../images/people_food.jpg";
-
 export function HeroSection() {
     return (
         <section className='heroSection'>

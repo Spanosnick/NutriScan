@@ -1,0 +1,127 @@
+.loginSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(199deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+
+.loginForm {
+  width: 50%;
+    min-height: 50vh;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-buttons button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  background: lightgray;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.toggle-buttons button:nth-child(1) {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.toggle-buttons button:nth-child(2) {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.toggle-buttons button.active {
+  color: white;
+}
+.toggle-buttons button.active:nth-child(1) {
+  background: var(--primary-color);
+}
+.toggle-buttons button.active:nth-child(2) {
+  background: var(--secondary-color);
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form button {
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.loginForm h2 {
+    text-align: center;
+    margin: 20px auto;
+  font-weight: 700;
+
+
+}
+
+.loginForm input {
+    width: 100%;
+  margin:5px auto;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  padding: 10px;
+}
+.loginForm form {
+  display: none;
+}
+.loginForm form.active {
+  display: block;
+}
+
+
+.loginForm .loginBtn {
+    width: 100%;
+  margin:5px auto;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.loginForm .registerBtn {
+  width: 100%;
+  margin:5px auto;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  .loginForm {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+
+}
+
