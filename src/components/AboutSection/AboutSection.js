@@ -5,8 +5,8 @@ export function AboutSection() {
     return (
         <section id='about' className='aboutSection'>
             <div className='aboutMain'>
-                <h3>Tι είναι το <span>NutriScan?</span></h3>
-                <p>Η <span>NutriScan</span> είναι μια εφαρμογή που επιτρέπει στις επιχειρήσεις που παρασκευάζουν
+                <h3>Tι είναι το <span>NutriScanner?</span></h3>
+                <p>Το <span>NutriScanner</span> είναι μια εφαρμογή που επιτρέπει στις επιχειρήσεις που παρασκευάζουν
                     χειροποίητα προϊόντα
                     (όπως σάντουιτς, τορτίγιες, σαλάτες κ.ά.) να προσθέτουν τις διατροφικές αξίες των προϊόντων τους
                     (πρωτεΐνες, υδατάνθρακες, λίπη, θερμίδες κ.λπ.). </p>

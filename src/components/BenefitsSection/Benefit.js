@@ -7,7 +7,7 @@ import {faQuestion} from '@fortawesome/free-solid-svg-icons';
 export function Benefit({
                             icon = faQuestion,
                             title = "Διατροφική Διαφάνεια για τους Πελάτες σας",
-                            description = "Με το NutriScan, οι πελάτες μπορούν να σκανάρουν το QR code και να δουν αμέσως τις διατροφικές πληροφορίες για κάθε προϊόν. Αυξήστε την εμπιστοσύνη τους προς την επιχείρησή σας με διαφάνεια και ακρίβεια"
+                            description = "Με το NutriScanner, οι πελάτες μπορούν να σκανάρουν το QR code και να δουν αμέσως τις διατροφικές πληροφορίες για κάθε προϊόν. Αυξήστε την εμπιστοσύνη τους προς την επιχείρησή σας με διαφάνεια και ακρίβεια"
                         }) {
     return (
         <div className='benefit_card'>

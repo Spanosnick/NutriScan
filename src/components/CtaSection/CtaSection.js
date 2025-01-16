@@ -58,7 +58,7 @@ export function CtaSection() {
             <div className='cta_container'>
                 <h2 className='cta_title'>Επικοινωνία</h2>
                 <p className='cta_description'>Συμπληρώστε το email σας παρακάτω για να μάθετε πρώτοι τα νέα και τις
-                    λειτουργίες του <span>NutriScan</span> </p>
+                    λειτουργίες του <span>NutriScanner</span> </p>
                 <form className='cta_form' onSubmit={handleSubmit}>
                     <input type='email' onChange={handleEmailChange} value={email} placeholder='Το email σας'/>
                     <button  disabled={disabled}>Εγγραφή</button>
