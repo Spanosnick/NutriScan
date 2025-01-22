@@ -59,6 +59,15 @@
     text-decoration: none;
     transition: all 0.3s ease;
 }
+.loginBtn-alternative{
+    background-color: white;
+    color: var(--primary-color) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 
 @media only screen and (max-width: 1440px){
     .nutriNav{

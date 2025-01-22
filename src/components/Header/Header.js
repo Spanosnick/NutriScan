@@ -13,8 +13,7 @@ export function Header() {
                 <a  href='#about'>Τί είναι </a>
                 <a href='#benefits'>Πως Βοηθάει </a>
                 <a href='#contact'>Επικοινωνία</a>
-                <NavLink className='loginBtn' to={'login'}>Σύνδεση</NavLink>
-                {/*<a className='cta'  href='#login'>Σύνδεση</a>*/}
+                <NavLink className='loginBtn-alternative' to={'login'}>Σύνδεση</NavLink>
             </div>
         </div>
     );
