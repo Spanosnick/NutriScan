@@ -1,10 +1,17 @@
 import '../components/LoginForm/LoginForm.css'
-import React, {useRef, useState} from "react";
+import React, {CSSProperties, useEffect, useRef, useState} from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 import {useDispatch, useSelector} from "react-redux";
 import {isLoggedIn,userActions} from "../features/user/userSlice";
 import {useNavigate, useNavigation} from "react-router-dom";
+import {BounceLoader} from "react-spinners";
 
+const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "blue",
 
+};
 
 export default function Login(props) {
     const [ dynamicActive,setDynamicActive ] = useState({loginBtn:'active',registerBtn:''});
@@ -13,6 +20,20 @@ export default function Login(props) {
     const isLogged = useSelector(isLoggedIn);
     const user_dispatch = useDispatch();
     const navigation = useNavigate();
+    let [loading, setLoading] = useState(false);
+    let [color, setColor] = useState("#dddddd");
+
+    useEffect(() => {
+
+        if(isLogged){
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+                navigation('/app');
+            },1500);
+        }
+
+    }, []);
 
 
 
@@ -24,20 +45,23 @@ export default function Login(props) {
         }
     }
 
-    function loginFormSubmit(e){
+    function loginFormSubmit(e) {
         e.preventDefault();
         console.log('login form submitted');
         const email = loginEmail.current.value;
         const password = loginPassword.current.value;
         // 1) Check if is empty and if is its email and then send it
-            user_dispatch(userActions.login({email:email,password:password}));
-            setTimeout(()=>{
-                navigation('/app');
-            },1500)
-
-        // 2) If authorized redirect to dashboard else show error message
+        user_dispatch(userActions.login({email: email, password: password}));
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            navigation('/app');
+        }, 1500);
 
     }
+
+
+
 
     return (
         <section className='loginSection'>
@@ -55,6 +79,15 @@ export default function Login(props) {
                     <div className='error-message'></div>
                     <button className='loginBtn' onClick={loginFormSubmit} type="submit">Login</button>
                 </form>
+                <ClipLoader
+                    color={color}
+                    loading={loading}
+                    cssOverride={override}
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
+
                 <form id="registerForm" className={dynamicActive.registerBtn}>
                     <h2>Register</h2>
                     <input type="text" placeholder="Name"/>
