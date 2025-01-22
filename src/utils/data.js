@@ -2,7 +2,12 @@ export const dummyStores = [
     {
         "id": 1,
         "name": "Savouraki",
-        "address": "Address 1",
+        "location":{
+            "address": "Address 1",
+            "city": "Chalkida",
+            "zip": "34100",
+            "country": "Greece"
+        },
         "phone": "1234567890",
         "email": "savouraki@gmail.com",
         "open hours": {
@@ -46,7 +51,12 @@ export const dummyStores = [
     {
         "id": 2,
         "name": "Savouraki 2",
-        "address": "Address 2",
+        "location":{
+            "address": "Address 1",
+            "city": "Chalkida",
+            "zip": "34100",
+            "country": "Greece"
+        },
         "phone": "1234567890",
         "email": "savouraki@gmail.com",
         "open hours": {

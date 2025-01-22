@@ -8,7 +8,7 @@ export function Dashboard() {
     const user_store = useSelector((state) => state.user);
     const user_dispatch = useDispatch();
   return (
-    <div className='p-4 d-flex justify-content-start align-content-center '>
+    <div className='p-4 d-flex justify-content-start align-content-center flex-wrap '>
         {dummyStores.map((store) => <StoreBasic key={store.id} storeInfos={store} />)
         }
     </div>
