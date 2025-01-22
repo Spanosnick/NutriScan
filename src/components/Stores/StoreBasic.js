@@ -23,7 +23,7 @@ export default function StoreBasic({ storeInfos }) {
                     <a href={`tel:${phone}`}>{phone}</a>
                 </div>
             </div>
-            <NavLink to={`/store/${id}`} className={styles.storeButton}>View Store</NavLink>
+            <NavLink to={`store/${id}`} className={styles.storeButton}>View Store</NavLink>
         </div>
     );
 }

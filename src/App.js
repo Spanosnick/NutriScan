@@ -30,13 +30,14 @@ const router = createBrowserRouter([
             {
                 path: 'app',
                 element: <StoreNavigation/>,
+
                 children: [
                     {
                         index: true,
                         element: <Dashboard/>
                     },
                     {
-                        path: 'stores',
+                        path: 'store',
                         element: <StoresList/>,
                         children: [
                             {
