@@ -6,13 +6,17 @@ import {useAuth} from "../contexts/AuthContext";
 export default function Login(props) {
     const [ dynamicActive,setDynamicActive ] = useState({loginBtn:'',registerBtn:'active'});
     const [error, setError] = useState('');
+    // Refs for the inputs
     const loginEmail = useRef();
     const loginPassword = useRef();
     const registerEmail = useRef();
     const registerPassword = useRef();
     const registerPasswordConfirm = useRef();
 
-    const { signup } = useAuth();
+
+
+
+    const { signup,login } = useAuth();
     const navigation = useNavigate();
     let [loading, setLoading] = useState(false);
 
@@ -24,14 +28,20 @@ export default function Login(props) {
         }
     }
 
-    function loginFormSubmit(e) {
+    async function loginFormSubmit(e) {
         e.preventDefault();
         const email = loginEmail.current.value;
         const password = loginPassword.current.value;
-        setTimeout(() => {
-            setLoading(false);
+        try {
+            setError('');
+            setLoading(true);
+            await login(email, password);
             navigation('/app');
-        }, 1500);
+        }catch (e) {
+            setError('Failed to login. Please check your email and password');
+        }
+        setLoading(false);
+
     }
 
     async function registerFormSubmit(e) {

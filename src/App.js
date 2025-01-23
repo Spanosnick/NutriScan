@@ -12,6 +12,7 @@ import {StoreNavigation} from "./pages/Authorized/StoreNavigation";
 import {Dashboard} from "./pages/Authorized/Dashboard";
 import RootLayout from "./pages/RootLayout";
 import EditStore from "./pages/Authorized/EditStore";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,15 +30,14 @@ const router = createBrowserRouter([
             },
             {
                 path: 'app',
-                element: <StoreNavigation/>,
-
+                element: <ProtectedRoute><StoreNavigation/></ProtectedRoute>,
                 children: [
                     {
                         index: true,
                         element: <Dashboard/>
                     },
                     {
-                        path: 'store',
+                        path: 'stores',
                         element: <StoresList/>,
                         children: [
                             {

@@ -1,0 +1,26 @@
+
+
+.editContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.editCard{
+    width: 70%;
+    margin: .5em auto;
+    border: 1px solid rgba(131, 131, 131, 0.4);
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+}
+.editCard h1{
+    font-size: 1.8rem;
+    margin-bottom: 1em;
+}
+.editInputsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
