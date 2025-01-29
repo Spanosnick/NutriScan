@@ -1,11 +1,11 @@
 import './App.css';
 
 
-import {createBrowserRouter, Link, Route, RouterProvider, Routes} from "react-router-dom";
+import {createBrowserRouter, Link, Outlet, Route, RouterProvider, Routes} from "react-router-dom";
 import {Home} from "./pages/Home";
 import Login from "./pages/Login";
 import {StoresList} from "./pages/Authorized/StoresList";
-import {Store} from "./pages/Authorized/Store";
+import {Store, StorePage} from "./pages/Authorized/Store";
 
 import NotFoundPage from "./pages/NotFoundPage";
 import {StoreNavigation} from "./pages/Authorized/StoreNavigation";
@@ -13,6 +13,9 @@ import {Dashboard} from "./pages/Authorized/Dashboard";
 import RootLayout from "./pages/RootLayout";
 import EditStore from "./pages/Authorized/EditStore";
 import ProtectedRoute from "./components/ProtectedRoute";
+import CreateStore from "./pages/Authorized/CreateStore";
+import {StoresRoot} from "./components/Stores/StoresRoot";
+import {storeDetailsLoader} from "./utils/stores";
 
 const router = createBrowserRouter([
     {
@@ -38,18 +41,35 @@ const router = createBrowserRouter([
                     },
                     {
                         path: 'stores',
-                        element: <StoresList/>,
+                        element: <StoresRoot/>,
                         children: [
                             {
+                                index: true,
+                                element: <StoresList/>
+                            },
+                            {
                                 path: ':id',
-                                element: <Store/>
+                                element: <Outlet/>,
+                                id: 'store-outlet',
+                                loader: storeDetailsLoader,
+                                children: [
+                                    {
+                                        index: true,
+                                        element: <StorePage/>
+                                    },
+                                    {
+                                        path: 'edit',
+                                        element: <EditStore/>
+                                    }
+                                    ]
                             }
-                        ]
+                            ]
                     },
                     {
-                        path: 'edit',
-                        element: <EditStore/>
+                        path: 'create',
+                        element: <CreateStore/>
                     }
+
                 ]
             }
         ]

@@ -57,22 +57,35 @@
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
     text-decoration: none;
 }
-
-.storeButton{
-    background-color: var(--primary-black);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    text-decoration: none;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-    width: 100%;
+.actionButtonsContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px ;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
+.actionButtonsContainer button, .actionButtonsContainer a{
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: unset;
+    color: white;
+}
+.primaryBtn{
+    background-color: var(--primary-color);
+
+}
+.dangerBtn{
+    background-color: #d20303;
+}
+
+
 @media screen and (max-width: 568px){
     .storeBasicContainer{
         width: 100%;
     }
 }
+
+

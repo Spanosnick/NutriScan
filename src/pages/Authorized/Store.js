@@ -1,13 +1,16 @@
-import { useParams} from "react-router-dom";
+import {NavLink, Outlet, useParams, useRouteLoaderData} from "react-router-dom";
+import StoreBasic from "../../components/Stores/StoreBasic";
+import {StoreDetails} from "../../components/Stores/StoreDetails";
 
-export function Store() {
+export function StorePage() {
     const {id} = useParams();
-    // 1) With the id from useParams we can now fetch the store data from the server
-    // 2) We can use the store data to display the store information
-    // 3) We check if the store id is the same of the in localStorage if true we can display the edit button
+    const data = useRouteLoaderData('store-outlet');
+    console.log(data);
   return (
-    <div>
-      <h1>This is a dynamic Store {id} </h1>
+    <div className='d-flex justify-content-center align-content-center flex-wrap'>
+     <StoreDetails data={data}/>
+        <Outlet/>
     </div>
+
   );
 }

@@ -33,7 +33,7 @@ export function StoreNavigation() {
                 <div className='secondPart'>
                     <NavLink to={''}>Αρχική</NavLink>
                     <NavLink to={'stores'}>Καταστήματα</NavLink>
-                    <NavLink to={'edit'}>Επεξεργασία</NavLink>
+                    <NavLink to={'create'} relative={"path"}>Δημιουργία</NavLink>
                     <button onClick={logoutHandler} className={'logoutBtn'}  >Αποσύνδεση</button>
                 </div>
             </div>
