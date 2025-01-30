@@ -125,6 +125,28 @@ button:disabled {
   margin-bottom: 15px;
 }
 
+.google-button{
+  width: 45%;
+    margin:5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    padding: 5px;
+  border-radius: .8em;
+  border: 1px solid black;
+  background-color: white;
+  text-align: center;
+}
+.googleIcon{
+    width: 20px;
+    aspect-ratio: 1/1;
+    margin-right: 10px;
+}
+.google-button p{
+    margin: 0;
+    padding: 0;
+}
+
 @media only screen and (max-width: 768px){
   .loginForm {
     width: 90%;

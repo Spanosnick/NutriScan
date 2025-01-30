@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -16,6 +17,7 @@ export const auth = app.auth()
 export default app
 
 export const db = getFirestore(app);
+export const googleAuthProvider = new GoogleAuthProvider();
 
 
 export async function getDocumentById(collectionName, docId) {
