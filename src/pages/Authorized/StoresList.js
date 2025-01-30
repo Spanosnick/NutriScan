@@ -11,29 +11,28 @@ export function StoresList() {
     const [stores, setStores] = useState(dummyStores);
     const storesCollectionRef = collection(db, "stores");
     const navigation = useNavigate();
+    async function getStores() {
 
-    useEffect(() => {
-        async function getStores() {
+        try {
+            const data = await getDocs(storesCollectionRef);
+            const filteredData = data.docs.map(doc => ({id: doc.id, ...doc.data()}));
+            setStores(filteredData);
 
-            try {
-                const data = await getDocs(storesCollectionRef);
-                const filteredData = data.docs.map(doc => ({id: doc.id, ...doc.data()}));
-                setStores(filteredData);
+        } catch (e) {
+            console.error("Error getting documents: ", e);
 
-            } catch (e) {
-                console.error("Error getting documents: ", e);
-
-            }
         }
-
+    }
+    useEffect(() => {
         getStores();
-    }, [deleteStore]);
+    }, []);
 
 
     async function deleteStore(id) {
         console.log("Delete Store with id: ", id);
         const storeDoc = doc(db, "stores", id);
         await deleteDoc(storeDoc);
+        getStores();
     }
 
     function details(id) {
