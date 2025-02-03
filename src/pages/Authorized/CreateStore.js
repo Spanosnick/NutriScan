@@ -3,6 +3,7 @@ import styles from './EditStore.module.css';
 import {Input} from "../../components/Input/Input";
 import {addDoc , collection} from "firebase/firestore";
 import {db,auth} from "../../firebase";
+import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
 
 
 export default function CreateStore() {
@@ -54,7 +55,7 @@ export default function CreateStore() {
                     <Input label='Ταxυδρομικός Κώδικας' type='text' placeholder='TK' value={newStore.zip} onChange={inputsHandler} inputName={'zip'}/>
                     {/*<Input label='Εικόνα' type='file' placeholder='Εικόνα' value='' onChange={inputsHandler}/>*/}
                     <Input label='Google Map Link' type='text' placeholder='Google Map Link' value={newStore.googleMapLink} onChange={inputsHandler} inputName={'googleMapLink'}/>
-
+                    <HoursAddition/>
                     <div className={styles.errorDiv}>
                         {errors && <p>{errors} </p>}
                     </div>

@@ -8,9 +8,9 @@
 }
 .inputContainer label{
     font-size: 1.1rem;
-    text-align: left;
+    text-align: center;
     width: 80%;
-    padding: .2em;
+    padding: 0;
     margin: .2em auto;
 }
 .inputContainer input{

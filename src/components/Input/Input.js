@@ -4,7 +4,7 @@ export function Input({label, type, placeholder, value, onChange ,ref,generalSty
     return (
         <div className={styles.inputContainer} >
                 <label htmlFor={inputName}>{label}</label>
-                <input  type={type} placeholder={placeholder} value={value} onChange={onChange} name={inputName} id={inputName} ref={ref}/>
+                <input  type={type} placeholder={placeholder} value={value} onChange={onChange} onInput={onChange} name={inputName} id={inputName} ref={ref}/>
         </div>
     )
 }
