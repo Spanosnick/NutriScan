@@ -1,0 +1,62 @@
+.hoursContainer{
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hoursContainer h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.hoursRow{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.hoursRow h1{
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    text-align: center;
+}
+.updateHoursBtn{
+    width: 45%;
+    padding: 1rem 0;
+    margin:.5em  auto;
+    background-color: #078d6e !important;
+}
+
+@media screen and  (max-width: 841px) {
+    .hoursRow{
+        width: 100%;
+    }
+}
+
+@media screen and  (max-width: 535px) {
+    .hoursRow{
+        flex-wrap: wrap;
+    }
+
+    .hoursRow div:last-of-type{
+        width: 45%;
+
+    }
+
+    .hoursRow h1{
+        width: 100%;
+        font-size: 1em;
+    }
+
+}
+

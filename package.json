@@ -27,6 +27,7 @@
     "react-router-dom": "^7.0.0",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.15.0",
+    "react-toggle-button": "^2.2.0",
     "redux": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
