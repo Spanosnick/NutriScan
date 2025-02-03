@@ -4,6 +4,7 @@ import {Input} from "../../components/Input/Input";
 import {addDoc , collection} from "firebase/firestore";
 import {db,auth} from "../../firebase";
 import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
+import {defaultOpenHours} from "../../utils/data";
 
 
 export default function CreateStore() {
@@ -18,7 +19,8 @@ export default function CreateStore() {
             zip:'',
             image:'',
             googleMapLink:'',
-            userId:auth?.currentUser?.uid
+            userId:auth?.currentUser?.uid,
+            openHours:defaultOpenHours
         }
     );
     const storesCollectionRef = collection(db, "stores");
@@ -33,14 +35,14 @@ export default function CreateStore() {
             setErrors(e.message);
 
         }
-
-
+    }
+    function getOpenHours(hours){
+        setNewStore({...newStore,openHours:hours});
     }
     function inputsHandler(e){
         const {name,value} = e.target;
         console.log(name,value);
         setNewStore({...newStore,[name]:value});
-
     }
     return (
         <div  className={styles.editContainer}>
@@ -55,7 +57,7 @@ export default function CreateStore() {
                     <Input label='Ταxυδρομικός Κώδικας' type='text' placeholder='TK' value={newStore.zip} onChange={inputsHandler} inputName={'zip'}/>
                     {/*<Input label='Εικόνα' type='file' placeholder='Εικόνα' value='' onChange={inputsHandler}/>*/}
                     <Input label='Google Map Link' type='text' placeholder='Google Map Link' value={newStore.googleMapLink} onChange={inputsHandler} inputName={'googleMapLink'}/>
-                    <HoursAddition/>
+                    <HoursAddition  defaultHours={newStore.openHours} onSubmit={getOpenHours} />
                     <div className={styles.errorDiv}>
                         {errors && <p>{errors} </p>}
                     </div>

@@ -1,10 +1,44 @@
 .storeDetailsContainer{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    margin: .5em auto;
+    width: 95%;
+    flex-wrap: wrap;
+}
+.storeName{
+    font-size: 2.3em;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0.5em 0;
+    width: 100%;
+    text-align: center;
+}
+
+.storeInfoContainer{
+    width: 35%;
+    min-height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.storeInfo{
+    padding: 1em;
+}
+
+.storeOpenHoursContainer{
+    display: flex;
     justify-content: center;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    border-radius: 1em;
-    width: 70%;
+    align-items: start;
+    width: 45%;
+    min-height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .5em ;
+}
+.hoursTable{
+    width: 95%;
+    border-collapse: collapse;
+}
+
+.hoursTable td, .hoursTable th{
+    padding: 0.5em;
+    text-align: center;
 }

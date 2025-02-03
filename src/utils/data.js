@@ -98,3 +98,13 @@ export const dummyStores = [
         ]
     },
     ]
+
+export const defaultOpenHours = [
+   {day:'Monday',itsOpen:true,open: '09:00', close: '17:00'},
+    {day:'Tuesday',itsOpen:true,open: '09:00', close: '17:00'},
+    {day:'Wednesday',itsOpen:true,open: '09:00', close: '17:00'},
+    {day:'Thursday',itsOpen:true,open: '09:00', close: '17:00'},
+    {day:'Friday',itsOpen:true,open: '09:00', close: '17:00'},
+    {day:'Saturday',itsOpen:true,open: '09:00', close: '17:00'},
+    {day:'Sunday',itsOpen:true,open: '09:00', close: '17:00'}
+];
