@@ -2,39 +2,46 @@ import React, {useState} from 'react';
 import styles from './EditStore.module.css';
 import {Input} from "../../components/Input/Input";
 import {addDoc , collection} from "firebase/firestore";
-import {db,auth} from "../../firebase";
+import {db, auth, updateDocumentById} from "../../firebase";
 import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
 import {defaultOpenHours} from "../../utils/data";
 import {Loading} from "../../components/Loading/Loading";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams, useRouteLoaderData} from "react-router-dom";
 
 
-export default function CreateStore() {
+export default function CreateStore({editMode = false}) {
     const [errors,setErrors] = useState(null);
-    const [newStore,setNewStore] = useState(
-        {
-            name:'',
-            phone:'',
-            address:'',
-            city:'',
-            email:'',
-            zip:'',
-            image:'',
-            googleMapLink:'',
-            userId:auth?.currentUser?.uid,
-            openHours:defaultOpenHours,
-            facebook:'',
-            instagram:''
-        }
-    );
+    const {id} = useParams();
+    // if we are in edit mode we need to get the data from the store
+    const data = useRouteLoaderData('store-outlet');
+    const newStoreObject = data ? data : {
+        name:'',
+        phone:'',
+        address:'',
+        city:'',
+        email:'',
+        zip:'',
+        image:'',
+        googleMapLink:'',
+        userId:auth?.currentUser?.uid,
+        openHours:defaultOpenHours,
+        facebook:'',
+        instagram:''
+    };
+    const [newStore,setNewStore] = useState(newStoreObject);
     const [loadingCreate,setLoadingCreate] = useState(false);
     const navigation = useNavigate();
     const storesCollectionRef = collection(db, "stores");
 
-    async function createStore(){
+    async function storeActionHandler(){
         setLoadingCreate(true);
         try {
-            const response = await addDoc(storesCollectionRef,newStore);
+            if (!editMode){
+                const response = await addDoc(storesCollectionRef,newStore);
+            }else {
+                // update the store
+                await updateDocumentById('stores',id,newStore);
+            }
             navigation('/app/stores/');
         }catch (e) {
             console.log(e.message)
@@ -42,13 +49,16 @@ export default function CreateStore() {
         }
         setLoadingCreate(false);
     }
+
     function getOpenHours(hours){
         setNewStore({...newStore,openHours:hours});
     }
+
     function inputsHandler(e){
         const {name,value} = e.target;
         setNewStore({...newStore,[name]:value});
     }
+
     if (loadingCreate){
         return  <Loading/>;
     }
@@ -56,7 +66,7 @@ export default function CreateStore() {
     return (
         <div  className={styles.editContainer}>
             <div className={styles.editCard}>
-                <h1>Δημιουργία Καταστήματος</h1>
+                <h1>{!editMode  ? 'Δημιουργία' : 'Επεξεργασία' } Καταστήματος</h1>
                 <div className={styles.editInputsContainer}>
                     <Input label='Όνομα' type='text' placeholder='Όνομα' value={newStore.name} onChange={inputsHandler} inputName={'name'}/>
                     <Input label='Τηλέφωνο' type='text' placeholder='Τηλέφωνο' value={newStore.phone} onChange={inputsHandler}  inputName={'phone'}/>
@@ -72,7 +82,7 @@ export default function CreateStore() {
                     <div className={styles.errorDiv}>
                         {errors !=null && <p>{errors} </p>}
                     </div>
-                    <button disabled={false} onClick={createStore}>Δημιουργία Καταστήματος</button>
+                    <button disabled={false} onClick={storeActionHandler}>{!editMode  ? 'Δημιουργία' : 'Ενημέρωση' }  Καταστήματος</button>
                 </div>
 
             </div>
