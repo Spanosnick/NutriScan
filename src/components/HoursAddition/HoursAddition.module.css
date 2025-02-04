@@ -37,6 +37,10 @@
     background-color: #078d6e !important;
 }
 
+.closedColor{
+    color: #ff0000!important;
+}
+
 @media screen and  (max-width: 841px) {
     .hoursRow{
         width: 100%;

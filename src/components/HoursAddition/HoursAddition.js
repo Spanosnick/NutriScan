@@ -6,11 +6,27 @@ import ToggleButton from 'react-toggle-button'
 
 export function HoursAddition({onSubmit,defaultHours}) {
     const [hoursOpen, setHoursOpen] = useState(defaultHours);
+    console.log(hoursOpen)
 
     function inputHandler(day, type, event){
+
         const inputValue = event.target.value;
-        setHoursOpen({...hoursOpen, [day]: {...hoursOpen[day], [type]: inputValue}})
+        console.log(day,type,inputValue)
+        const index = hoursOpen.findIndex((array_day)=> array_day.day === day);
+        console.log(index)
+        if(type === 'open') {
+            setHoursOpen([...hoursOpen.slice(0, index), {
+                ...hoursOpen[index],
+                open: inputValue
+            }, ...hoursOpen.slice(index + 1)]);
+        }else if(type === 'close'){
+            setHoursOpen([...hoursOpen.slice(0, index), {
+                ...hoursOpen[index],
+                close: inputValue
+            }, ...hoursOpen.slice(index + 1)]);
+        }
     }
+
 
     function updateDocumentHours(){
         console.log(hoursOpen)
@@ -20,7 +36,7 @@ export function HoursAddition({onSubmit,defaultHours}) {
     return (<div className={style.hoursContainer}>
             <h3> Ώρες Λειτουργίας</h3>
         {hoursOpen.map((day, index) => {
-            return <div className={style.hoursRow} key={`${day}_index`}>
+            return <div className={style.hoursRow} key={`${day.day}_index`}>
                 <p className={style.day}>{day.day}</p>
                 {day.itsOpen && <Input label='' type='time' value={day.open} onChange={(value)=>inputHandler(day.day,'open',value)}/> }
                 {day.itsOpen && '-' }
@@ -50,8 +66,9 @@ return (
         {Object.keys(hours).map((day,index)=>{
             return <tr key={`${day}_${index}`}>
                 <td>{hours[day].day}</td>
-                <td>{hours[day].open}</td>
-                <td>{hours[day].close}</td>
+                {hours[day].itsOpen && (<td>{hours[day].open}</td> )}
+                {hours[day].itsOpen && (<td>{hours[day].close}</td> )}
+                {!hours[day].itsOpen && (<td className={style.closedColor} colSpan='2'>Κλειστό</td> )}
             </tr>
         })}
         </tbody>
