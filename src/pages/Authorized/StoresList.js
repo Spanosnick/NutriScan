@@ -5,19 +5,20 @@ import {useEffect, useState} from "react";
 import {dummyStores} from "../../utils/data";
 import {collection, getDocs, addDoc, doc, deleteDoc} from "firebase/firestore";
 import {db} from "../../firebase";
+import {Loading} from "../../components/Loading/Loading";
 
 
 export function StoresList() {
-    const [stores, setStores] = useState(dummyStores);
+    const [stores, setStores] = useState({});
+    const [loading, setLoading] = useState(true);
     const storesCollectionRef = collection(db, "stores");
     const navigation = useNavigate();
     async function getStores() {
-
         try {
             const data = await getDocs(storesCollectionRef);
             const filteredData = data.docs.map(doc => ({id: doc.id, ...doc.data()}));
             setStores(filteredData);
-
+            setLoading(false);
         } catch (e) {
             console.error("Error getting documents: ", e);
 
@@ -41,6 +42,9 @@ export function StoresList() {
         navigation('/app/stores/' + idString);
     }
 
+    if (loading) {
+        return   <Loading/>;
+    }
 
     return <div>
         <div className='p-4 d-flex justify-content-start align-content-center flex-wrap '>

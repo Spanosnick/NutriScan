@@ -17,7 +17,6 @@ export function StorePage() {
   return (
     <div className=''>
      <StoreDetails data={data}/>
-        {/*<button onClick={addHours}>Προσθήκη Ωρών</button>*/}
         <Outlet/>
     </div>
 

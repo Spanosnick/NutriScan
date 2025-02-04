@@ -21,7 +21,7 @@ export function HoursAddition({onSubmit,defaultHours}) {
             <h3> Ώρες Λειτουργίας</h3>
         {hoursOpen.map((day, index) => {
             return <div className={style.hoursRow} key={`${day}_index`}>
-                <h1>{day.day}</h1>
+                <p className={style.day}>{day.day}</p>
                 {day.itsOpen && <Input label='' type='time' value={day.open} onChange={(value)=>inputHandler(day.day,'open',value)}/> }
                 {day.itsOpen && '-' }
                 {day.itsOpen && <Input label='' type='time' value={day.close} onChange={(value)=>inputHandler(day.day,'close',value)}/> }
@@ -31,7 +31,6 @@ export function HoursAddition({onSubmit,defaultHours}) {
             <div className={style.hoursRow}>
                 <button className={style.updateHoursBtn} onClick={updateDocumentHours}>Ενημέρωση</button>
             </div>
-
         </div>
     )
 }

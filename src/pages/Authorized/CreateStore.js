@@ -20,7 +20,9 @@ export default function CreateStore() {
             image:'',
             googleMapLink:'',
             userId:auth?.currentUser?.uid,
-            openHours:defaultOpenHours
+            openHours:defaultOpenHours,
+            facebook:'',
+            instagram:''
         }
     );
     const storesCollectionRef = collection(db, "stores");
@@ -57,11 +59,13 @@ export default function CreateStore() {
                     <Input label='Ταxυδρομικός Κώδικας' type='text' placeholder='TK' value={newStore.zip} onChange={inputsHandler} inputName={'zip'}/>
                     {/*<Input label='Εικόνα' type='file' placeholder='Εικόνα' value='' onChange={inputsHandler}/>*/}
                     <Input label='Google Map Link' type='text' placeholder='Google Map Link' value={newStore.googleMapLink} onChange={inputsHandler} inputName={'googleMapLink'}/>
+                    <Input label='Facebook' type='text' placeholder='Facebook' value={newStore.facebook} onChange={inputsHandler} inputName={'facebook'}/>
+                    <Input label='Instagram' type='text' placeholder='Instagram' value={newStore.instagram} onChange={inputsHandler} inputName={'instagram'}/>
                     <HoursAddition  defaultHours={newStore.openHours} onSubmit={getOpenHours} />
                     <div className={styles.errorDiv}>
                         {errors && <p>{errors} </p>}
                     </div>
-                    <button disabled={false} onClick={createStore}>Υποβολή Καταστήματος</button>
+                    <button disabled={false} onClick={createStore}>Δημιουργία Καταστήματος</button>
                 </div>
 
             </div>
