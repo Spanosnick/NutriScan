@@ -6,6 +6,7 @@ import { signInWithPopup } from "firebase/auth";
 import {auth, googleAuthProvider} from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
+import {Loading} from "../components/Loading/Loading";
 
 export default function Login(props) {
     const [ dynamicActive,setDynamicActive ] = useState({loginBtn:'',registerBtn:'active'});
@@ -49,9 +50,9 @@ export default function Login(props) {
 
     async function loginWithGoogle(e) {
         e.preventDefault();
+        setLoading(true);
         try {
             const result = await signInWithPopup(auth, googleAuthProvider);
-
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     navigation('/app');
@@ -63,6 +64,7 @@ export default function Login(props) {
         } catch (error) {
             console.error("Error signing in:", error);
         }
+        setLoading(false);
     }
 
     async function registerFormSubmit(e) {
@@ -85,6 +87,10 @@ export default function Login(props) {
         }
         setLoading(false);
 
+    }
+
+    if (loading) {
+        return  <Loading/>
     }
 
 
