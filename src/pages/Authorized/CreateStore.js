@@ -5,10 +5,12 @@ import {addDoc , collection} from "firebase/firestore";
 import {db,auth} from "../../firebase";
 import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
 import {defaultOpenHours} from "../../utils/data";
+import {Loading} from "../../components/Loading/Loading";
+import {useNavigate} from "react-router-dom";
 
 
 export default function CreateStore() {
-    const [errors,setErrors] = useState();
+    const [errors,setErrors] = useState(null);
     const [newStore,setNewStore] = useState(
         {
             name:'',
@@ -25,27 +27,32 @@ export default function CreateStore() {
             instagram:''
         }
     );
+    const [loadingCreate,setLoadingCreate] = useState(false);
+    const navigation = useNavigate();
     const storesCollectionRef = collection(db, "stores");
 
     async function createStore(){
+        setLoadingCreate(true);
         try {
             const response = await addDoc(storesCollectionRef,newStore);
-            console.log(response);
-
+            navigation('/app/stores/');
         }catch (e) {
-            console.log(e)
+            console.log(e.message)
             setErrors(e.message);
-
         }
+        setLoadingCreate(false);
     }
     function getOpenHours(hours){
         setNewStore({...newStore,openHours:hours});
     }
     function inputsHandler(e){
         const {name,value} = e.target;
-        console.log(name,value);
         setNewStore({...newStore,[name]:value});
     }
+    if (loadingCreate){
+        return  <Loading/>;
+    }
+
     return (
         <div  className={styles.editContainer}>
             <div className={styles.editCard}>
@@ -63,7 +70,7 @@ export default function CreateStore() {
                     <Input label='Instagram' type='text' placeholder='Instagram' value={newStore.instagram} onChange={inputsHandler} inputName={'instagram'}/>
                     <HoursAddition  defaultHours={newStore.openHours} onSubmit={getOpenHours} />
                     <div className={styles.errorDiv}>
-                        {errors && <p>{errors} </p>}
+                        {errors !=null && <p>{errors} </p>}
                     </div>
                     <button disabled={false} onClick={createStore}>Δημιουργία Καταστήματος</button>
                 </div>
