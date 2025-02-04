@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './EditStore.module.css';
 import {Input} from "../../components/Input/Input";
 import {addDoc , collection} from "firebase/firestore";
-import {db, auth, updateDocumentById} from "../../firebase";
+import {db, auth, updateDocumentById, deleteDocumentById} from "../../firebase";
 import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
 import {defaultOpenHours} from "../../utils/data";
 import {Loading} from "../../components/Loading/Loading";
@@ -59,6 +59,18 @@ export default function CreateStore({editMode = false}) {
         setNewStore({...newStore,[name]:value});
     }
 
+    async function deleteStoreHandler(){
+        setLoadingCreate(true);
+        try {
+            await  deleteDocumentById('stores',id);
+            navigation('/app/stores/');
+        }catch (e) {
+            console.log(e.message);
+            setErrors(e.message);
+        }
+
+    }
+
     if (loadingCreate){
         return  <Loading/>;
     }
@@ -82,7 +94,8 @@ export default function CreateStore({editMode = false}) {
                     <div className={styles.errorDiv}>
                         {errors !=null && <p>{errors} </p>}
                     </div>
-                    <button disabled={false} onClick={storeActionHandler}>{!editMode  ? 'Δημιουργία' : 'Ενημέρωση' }  Καταστήματος</button>
+                    <button disabled={loadingCreate} onClick={storeActionHandler}>{!editMode  ? 'Δημιουργία' : 'Ενημέρωση' } Καταστήματος</button>
+                    {editMode &&  <button disabled={loadingCreate} className={styles.deleteBtn}  onClick={deleteStoreHandler}>Διαγραφή Καταστήματος</button>}
                 </div>
 
             </div>

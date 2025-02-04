@@ -4,13 +4,14 @@ import {auth} from "../../firebase";
 import {NavLink} from "react-router-dom";
 import {DisplayAvailableHours} from "../HoursAddition/HoursAddition";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FaEdit } from "react-icons/fa";
 
 export function StoreDetails({data}) {
     const {address, city, email, googleMapLink, image, name, phone, zip, id, userId, openHours, socialMedia} = data;
 
     return <div className={style.storeDetailsContainer}>
         {/*Do not render the edit Button if has no authority to edit the store*/}
-        {userId === auth?.currentUser?.uid && <NavLink to={'edit'}>Επεξεργασία</NavLink>}
+        {userId === auth?.currentUser?.uid && <div className={style.editContainer}> <NavLink  to={'edit'}><FaEdit /></NavLink> </div>}
         <h1 className={style.storeName}>{name}</h1>
         <div className={style.storeInfoContainer}>
 

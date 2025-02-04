@@ -5,20 +5,13 @@ import {updateDocumentById} from "../../firebase";
 import {defaultOpenHours} from "../../utils/data";
 
 export function StorePage() {
-    const {id} = useParams();
     const data = useRouteLoaderData('store-outlet');
-    console.log(data);
-    async function addHours(e){
-        e.preventDefault();
-        const openHours = defaultOpenHours;
-      await  updateDocumentById('stores',id,{openHours:openHours},true);
-    }
 
-  return (
-    <div className=''>
-     <StoreDetails data={data}/>
-        <Outlet/>
-    </div>
+    return (
+        <div className=''>
+            <StoreDetails data={data}/>
+            <Outlet/>
+        </div>
 
-  );
+    );
 }

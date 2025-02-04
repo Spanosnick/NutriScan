@@ -1,15 +1,17 @@
 import React from 'react';
 import styles from './EditStore.module.css';
-import {Input} from "../../components/Input/Input";
-import {useParams, useRouteLoaderData} from "react-router-dom";
-import {StoreDetails} from "../../components/Stores/StoreDetails";
+import {NavLink, useNavigate, useRouteLoaderData} from "react-router-dom";
 import CreateStore from "./CreateStore";
-
+import {auth} from "../../firebase";
+import style from "../../components/Stores/StoreDetails.module.css";
+import {FaEdit} from "react-icons/fa";
 
 export default function EditStore() {
-    const {id} = useParams();
     const data = useRouteLoaderData('store-outlet');
-    console.log(data);
+    const navigation = useNavigate();
+    if (data.userId === auth?.currentUser?.uid){
+        navigation('/app/stores/');
+    }
     return (
         <div  className={styles.editContainer}>
             <CreateStore editMode={true}/>

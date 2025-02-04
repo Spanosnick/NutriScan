@@ -1,6 +1,6 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { getFirestore, doc, getDoc,setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc,setDoc,deleteDoc  } from "firebase/firestore";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const app = firebase.initializeApp({
@@ -34,7 +34,7 @@ export async function getDocumentById(collectionName, docId) {
 
 export async function deleteDocumentById(collectionName, docId) {
     try {
-        await db.collection(collectionName).doc(docId).delete();
+        await deleteDoc(doc(db, collectionName, docId));
         console.log(`Document '${docId}' deleted successfully.`);
     } catch (error) {
         console.error("Error deleting document:", error);

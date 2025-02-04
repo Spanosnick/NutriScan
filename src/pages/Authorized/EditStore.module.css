@@ -55,3 +55,7 @@
     cursor: not-allowed;
 }
 
+.editInputsContainer .deleteBtn{
+    background-color: red;
+}
+
