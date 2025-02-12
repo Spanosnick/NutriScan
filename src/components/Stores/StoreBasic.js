@@ -12,7 +12,7 @@ export default function StoreBasic({ storeInfos,onDetails,onDelete }) {
                     <h2>{name}</h2>
                     <p>{city} | {zip}</p>
                 </div>
-                {image && <img className={styles.storeImage} src={image} alt="store"/>}
+                {image && <img className={styles.storeImage} src={`https://nickport.com/apis/nutriscanner_photos/${image}`} alt="store"/>}
                 {!image && <img className={styles.storeImage} src={logo} alt="Logo"/>}
             </div>
             <div className={styles.storeCardInfos}>

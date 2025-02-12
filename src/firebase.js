@@ -1,6 +1,6 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { getFirestore, doc, getDoc,setDoc,deleteDoc  } from "firebase/firestore";
+import { getFirestore, doc, getDoc,setDoc,deleteDoc,updateDoc} from "firebase/firestore";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const app = firebase.initializeApp({
@@ -41,7 +41,7 @@ export async function deleteDocumentById(collectionName, docId) {
     }
 }
 
-export async function updateDocumentById(collectionName, docId, updatedData,merge = false) {
+export async function setDocumentById(collectionName, docId, updatedData, merge = false) {
     try {
         if (merge) {
             await setDoc(doc(db, collectionName, docId), updatedData, {merge: true});
@@ -52,3 +52,11 @@ export async function updateDocumentById(collectionName, docId, updatedData,merg
         console.error("Error updating document:", error);
     }
 }
+export async function updateDocumentById(collectionName, docId, updatedData) {
+    try {
+        await updateDoc(doc(db, collectionName, docId), updatedData);
+    } catch (error) {
+        console.error("Error updating document:", error);
+    }
+}
+

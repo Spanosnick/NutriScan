@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import styles from './EditStore.module.css';
 import {Input} from "../../components/Input/Input";
 import {addDoc , collection} from "firebase/firestore";
-import {db, auth, updateDocumentById, deleteDocumentById} from "../../firebase";
+import {db, auth, setDocumentById, deleteDocumentById} from "../../firebase";
 import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
 import {defaultOpenHours} from "../../utils/data";
 import {Loading} from "../../components/Loading/Loading";
 import {useNavigate, useParams, useRouteLoaderData} from "react-router-dom";
+import UploadImage from "../../components/UploadImage/UploadImage";
 
 
 export default function CreateStore({editMode = false}) {
@@ -26,7 +27,8 @@ export default function CreateStore({editMode = false}) {
         userId:auth?.currentUser?.uid,
         openHours:defaultOpenHours,
         facebook:'',
-        instagram:''
+        instagram:'',
+        isActive:true
     };
     const [newStore,setNewStore] = useState(newStoreObject);
     const [loadingCreate,setLoadingCreate] = useState(false);
@@ -40,7 +42,7 @@ export default function CreateStore({editMode = false}) {
                 const response = await addDoc(storesCollectionRef,newStore);
             }else {
                 // update the store
-                await updateDocumentById('stores',id,newStore);
+                await setDocumentById('stores',id,newStore);
             }
             navigation('/app/stores/');
         }catch (e) {
@@ -79,6 +81,9 @@ export default function CreateStore({editMode = false}) {
         <div  className={styles.editContainer}>
             <div className={styles.editCard}>
                 <h1>{!editMode  ? 'Δημιουργία' : 'Επεξεργασία' } Καταστήματος</h1>
+                <div className={styles.imageContainer}>
+                    <UploadImage documentId={id} defaultImage={editMode ?  newStore.image : null}/>
+                </div>
                 <div className={styles.editInputsContainer}>
                     <Input label='Όνομα' type='text' placeholder='Όνομα' value={newStore.name} onChange={inputsHandler} inputName={'name'}/>
                     <Input label='Τηλέφωνο' type='text' placeholder='Τηλέφωνο' value={newStore.phone} onChange={inputsHandler}  inputName={'phone'}/>
@@ -91,6 +96,7 @@ export default function CreateStore({editMode = false}) {
                     <Input label='Facebook' type='text' placeholder='Facebook' value={newStore.facebook} onChange={inputsHandler} inputName={'facebook'}/>
                     <Input label='Instagram' type='text' placeholder='Instagram' value={newStore.instagram} onChange={inputsHandler} inputName={'instagram'}/>
                     <HoursAddition  defaultHours={newStore.openHours} onSubmit={getOpenHours} />
+
                     <div className={styles.errorDiv}>
                         {errors !=null && <p>{errors} </p>}
                     </div>

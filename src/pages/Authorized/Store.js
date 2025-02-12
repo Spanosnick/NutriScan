@@ -1,7 +1,7 @@
 import {NavLink, Outlet, useParams, useRouteLoaderData} from "react-router-dom";
 import StoreBasic from "../../components/Stores/StoreBasic";
 import {StoreDetails} from "../../components/Stores/StoreDetails";
-import {updateDocumentById} from "../../firebase";
+import {setDocumentById} from "../../firebase";
 import {defaultOpenHours} from "../../utils/data";
 
 export function StorePage() {
