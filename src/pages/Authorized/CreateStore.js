@@ -8,6 +8,7 @@ import {defaultOpenHours} from "../../utils/data";
 import {Loading} from "../../components/Loading/Loading";
 import {useNavigate, useParams, useRouteLoaderData} from "react-router-dom";
 import UploadImage from "../../components/UploadImage/UploadImage";
+import Products from "./Products/Products";
 
 
 export default function CreateStore({editMode = false}) {
@@ -96,6 +97,7 @@ export default function CreateStore({editMode = false}) {
                     <Input label='Facebook' type='text' placeholder='Facebook' value={newStore.facebook} onChange={inputsHandler} inputName={'facebook'}/>
                     <Input label='Instagram' type='text' placeholder='Instagram' value={newStore.instagram} onChange={inputsHandler} inputName={'instagram'}/>
                     <HoursAddition  defaultHours={newStore.openHours} onSubmit={getOpenHours} />
+                    <Products />
 
                     <div className={styles.errorDiv}>
                         {errors !=null && <p>{errors} </p>}

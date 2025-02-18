@@ -1,0 +1,86 @@
+.productItem{
+    width: 30%;
+    border: 1px solid black;
+    margin: .5em;
+    padding: .5em;
+    border-radius: .5em;
+    position: relative;
+}
+
+
+
+.productItem:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width: 1514px) {
+    .productItem{
+        width: 45%;
+    }
+
+}
+
+@media screen and (max-width: 876px) {
+    .productItem{
+        width: 100%;
+    }
+
+}
+
+.productCategory{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:var(--secondary-color);
+    border-radius: 0 .4em 0 0 ;
+    color: white;
+    padding: 0.2em  ;
+    font-size: .9em;
+    line-height: .9em;
+    max-width: 90px;
+    min-width: 90px;
+    min-height: 1.5em;
+}
+
+.productInfoContainer{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.29);
+    margin-bottom: .3em;
+}
+.productTitle{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    padding: 0!important;
+    margin: 0!important;
+}
+.productDescription{
+    text-align: center;
+    font-size: 1.1em;
+    color: #7b7878;
+    padding: 0!important;
+    margin: 0!important;
+}
+.nutrients_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: .5em;
+
+}
+.caloriesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: .3em;
+    margin-bottom: .3em;
+    background-color: var(--primary-black);
+}
+.caloriesContainer p {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 1.3em;
+}

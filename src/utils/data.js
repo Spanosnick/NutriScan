@@ -108,3 +108,84 @@ export const defaultOpenHours = [
     {day:'Σάββατο',itsOpen:true,open: '09:00', close: '17:00'},
     {day:'Κυριακή',itsOpen:true,open: '09:00', close: '17:00'}
 ];
+
+export const dummyProducts = [
+    {
+        "id": 1,
+        'store_id': 'uyBNznmfiTQIurOjLesm',
+        'name': 'Product 1',
+        'description': 'Product 1 description',
+        'category': 'sandwich',
+        'nutrients_data':{
+            'protein' : 150,
+            'fat': 200,
+            'carbs': 300,
+        },
+        'calories': 200
+    },
+    {
+        "id": 2,
+        'store_id': 'uyBNznmfiTQIurOjLesm',
+        'name': 'Product 1',
+        'description': 'Product 1 description',
+        'category': 'sandwich',
+        'nutrients_data':{
+            'protein' : 150,
+            'fat': 200,
+            'carbs': 300,
+        },
+        'calories': 200
+    },
+    {
+        "id": 3,
+        'store_id': 'uyBNznmfiTQIurOjLesm',
+        'name': 'Product 1',
+        'description': 'Product 1 description',
+        'category': 'sandwich',
+        'nutrients_data':{
+            'protein' : 150,
+            'fat': 200,
+            'carbs': 300,
+        },
+        'calories': 200
+    },
+    {
+        "id": 4,
+        'store_id': 'uyBNznmfiTQIurOjLesm',
+        'name': 'Product 1',
+        'description': 'Product 1 description',
+        'category': 'sandwich',
+        'nutrients_data':{
+            'protein' : 150,
+            'fat': 200,
+            'carbs': 300,
+        },
+        'calories': 200
+    }
+    ,    {
+        "id": 5,
+        'store_id': 'uyBNznmfiTQIurOjLesm',
+        'name': 'Product 1',
+        'description': 'Product 1 description',
+        'category': 'sandwich',
+        'nutrients_data':{
+            'protein' : 150,
+            'fat': 200,
+            'carbs': 300,
+        },
+        'calories': 200
+    },
+    {
+        "id": 6,
+        'store_id': 'uyBNznmfiTQIurOjLesm',
+        'name': 'Product 1',
+        'description': 'Product 1 description',
+        'category': 'Wrap ',
+        'nutrients_data':{
+            'protein' : 150,
+            'fat': 200,
+            'carbs': 300,
+        },
+        'calories': 200
+    }
+]

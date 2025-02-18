@@ -1,0 +1,14 @@
+
+.carbIconContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 25%;
+    margin:  auto;
+    color: var(--primary-color);
+
+}
+.carbIconContainer p{
+    padding: 0 .3em ;
+    margin: 0;
+}
