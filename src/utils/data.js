@@ -98,6 +98,7 @@ export const dummyStores = [
         ]
     },
     ]
+export const BASIC_PHOTOS_PATH = 'https://nickport.com/apis/nutriscanner_photos/'
 
 export const defaultOpenHours = [
    {day:'Δευτέρα',itsOpen:true,open: '09:00', close: '17:00'},

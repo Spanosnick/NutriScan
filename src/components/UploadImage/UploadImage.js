@@ -3,13 +3,13 @@ import styles from './UploadImage.module.css'
 import logo from "../../images/logo.jpg";
 import {Loading} from "../Loading/Loading";
 import {setDocumentById, updateDocumentById} from "../../firebase";
+import {BASIC_PHOTOS_PATH} from "../../utils/data";
 
 const UploadImage = ({documentId,defaultImage = null}) => {
     console.log(documentId);
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    const imageSrc = defaultImage != null ? `https://nickport.com/apis/nutriscanner_photos/${documentId}/${defaultImage}` :
-        `https://nickport.com/apis/nutriscanner_photos/${documentId}/${defaultImage}`;
+    const imageSrc = defaultImage != null ? `${BASIC_PHOTOS_PATH}${documentId}/${defaultImage}` :    null;
 
 
     const handleFileChange = (e) => {

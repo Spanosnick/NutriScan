@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './StoreBasic.module.css';
 import {NavLink} from "react-router-dom";
 import logo from "../../images/logo.jpg";
+import {BASIC_PHOTOS_PATH} from "../../utils/data";
 
 export default function StoreBasic({ storeInfos,onDetails,onDelete }) {
     const { address ,city , email, googleMapsLink,image,name, phone ,zip,id } = storeInfos;
@@ -12,7 +13,7 @@ export default function StoreBasic({ storeInfos,onDetails,onDelete }) {
                     <h2>{name}</h2>
                     <p>{city} | {zip}</p>
                 </div>
-                {image && <img className={styles.storeImage} src={`https://nickport.com/apis/nutriscanner_photos/${image}`} alt="store"/>}
+                {image && <img className={styles.storeImage} src={`${BASIC_PHOTOS_PATH}${id}/${image}`} alt="store"/>}
                 {!image && <img className={styles.storeImage} src={logo} alt="Logo"/>}
             </div>
             <div className={styles.storeCardInfos}>
