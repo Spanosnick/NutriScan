@@ -1,4 +1,4 @@
-.productsList{
+.productsList {
     width: 100%;
     margin: .5em auto;
     display: flex;
@@ -6,5 +6,63 @@
     align-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.productModalContainer {
+    position: relative;
+    width: 100%;
+}
+
+.addProductModalBtn {
+    position: absolute !important;
+    top: -67px !important;
+    right: 0 !important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.productModal {
+    width: 60%;
+    min-height: 500px;
+    border-radius: 2em;
+    background-color: #ffffff;
+}
+
+.productModalInfos {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap !important;
+}
+
+.productModalInfos h1 {
+    text-align: center;
+    width: 100%;
+}
+
+.productModalInfosInput {
+    max-width: unset;
+    width: 48%;
+    margin: .5em auto;
+}
+.productModalInfos select{
+    width: 45%;
+    margin: .5em auto ;
+    border-radius: .5em;
+    padding: .3em;
+}
+
+.nutrientsDataContainer {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 

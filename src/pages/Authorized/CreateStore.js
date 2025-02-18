@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import styles from './EditStore.module.css';
 import {Input} from "../../components/Input/Input";
 import {addDoc , collection} from "firebase/firestore";
@@ -8,7 +8,7 @@ import {defaultOpenHours} from "../../utils/data";
 import {Loading} from "../../components/Loading/Loading";
 import {useNavigate, useParams, useRouteLoaderData} from "react-router-dom";
 import UploadImage from "../../components/UploadImage/UploadImage";
-import Products from "./Products/Products";
+import Products, {ProductModal} from "./Products/Products";
 
 
 export default function CreateStore({editMode = false}) {
@@ -35,6 +35,8 @@ export default function CreateStore({editMode = false}) {
     const [loadingCreate,setLoadingCreate] = useState(false);
     const navigation = useNavigate();
     const storesCollectionRef = collection(db, "stores");
+
+
 
     async function storeActionHandler(){
         setLoadingCreate(true);
@@ -97,7 +99,11 @@ export default function CreateStore({editMode = false}) {
                     <Input label='Facebook' type='text' placeholder='Facebook' value={newStore.facebook} onChange={inputsHandler} inputName={'facebook'}/>
                     <Input label='Instagram' type='text' placeholder='Instagram' value={newStore.instagram} onChange={inputsHandler} inputName={'instagram'}/>
                     <HoursAddition  defaultHours={newStore.openHours} onSubmit={getOpenHours} />
-                    <Products />
+                    <div>
+                        <h1>Προιόντα</h1>
+                        <ProductModal   />
+                        <Products  />
+                    </div>
 
                     <div className={styles.errorDiv}>
                         {errors !=null && <p>{errors} </p>}
