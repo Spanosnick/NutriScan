@@ -4,13 +4,12 @@ import logo from "../../images/logo.jpg";
 import {Loading} from "../Loading/Loading";
 import {setDocumentById, updateDocumentById} from "../../firebase";
 
-const UploadImage = ({documentId,defaultImage}) => {
+const UploadImage = ({documentId,defaultImage = null}) => {
     console.log(documentId);
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    const imageSrc = `https://nickport.com/apis/nutriscanner_photos/${defaultImage}`;
-
-
+    const imageSrc = defaultImage != null ? `https://nickport.com/apis/nutriscanner_photos/${documentId}/${defaultImage}` :
+        `https://nickport.com/apis/nutriscanner_photos/${documentId}/${defaultImage}`;
 
 
     const handleFileChange = (e) => {
@@ -39,7 +38,7 @@ const UploadImage = ({documentId,defaultImage}) => {
             alert(data.message || "Upload successful!");
             // I want to set the image url to the firestore document
             // and then refresh the page
-            await updateDocumentById("stores", documentId, {image: data.filename});
+            await updateDocumentById("stores", documentId, {image: image.name});
             window.location.reload();
         } catch (error) {
             console.error("Upload failed:", error);
@@ -56,7 +55,7 @@ const UploadImage = ({documentId,defaultImage}) => {
         <div  className={styles.uploadImageContainer}>
             <img src={imageSrc} alt="Upload Preview" />
             <input type="file" hidden={true} accept="image/*"  id='uploadImage' onChange={handleFileChange} />
-            <label htmlFor='uploadImage'>Αλλαγή Είκονας</label>
+            <label htmlFor='uploadImage'>Αλλαγή Είκονας {image?.name }</label>
             {image !=null && <button onClick={handleUpload}>Ανέβασμα Είκονας</button>}
 
         </div>
