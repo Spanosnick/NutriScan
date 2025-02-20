@@ -6,7 +6,7 @@ import {db, auth, setDocumentById, deleteDocumentById, dynamicFirestoreQuery} fr
 import {HoursAddition} from "../../components/HoursAddition/HoursAddition";
 import {defaultOpenHours} from "../../utils/data";
 import {Loading} from "../../components/Loading/Loading";
-import {useNavigate, useParams, useRouteLoaderData} from "react-router-dom";
+import {NavLink, useNavigate, useParams, useRouteLoaderData} from "react-router-dom";
 import UploadImage from "../../components/UploadImage/UploadImage";
 import Products, {ProductModal} from "./Products/Products";
 
@@ -46,7 +46,7 @@ export default function CreateStore({editMode = false}) {
             const conditions = [['store_id', "==", id]];
             try {
                 const products = await dynamicFirestoreQuery(productsCollectionRef, conditions);
-                console.log(products);
+
                 setStoreProducts(products)
             } catch (e) {
                 console.log(e);
@@ -102,8 +102,6 @@ export default function CreateStore({editMode = false}) {
     }
 
     async function createStoreProduct(product) {
-        console.log('this is a product');
-        console.log(product);
         // create an object with the store_id and spread the product
         const newProduct = {
             ...product,
@@ -160,6 +158,7 @@ export default function CreateStore({editMode = false}) {
                         <h1>Προιόντα</h1>
                         <ProductModal onCreate={createStoreProduct}/>
                         <Products products={storeProducts}/>
+                        <button onClick={()=>navigation('/app/products')}>All Products</button>
                     </div>
 
                     <div className={styles.errorDiv}>

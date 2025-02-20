@@ -1,12 +1,9 @@
 import './App.css';
-
-
-import {createBrowserRouter, Link, Outlet, Route, RouterProvider, Routes} from "react-router-dom";
+import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import {Home} from "./pages/Home";
 import Login from "./pages/Login";
 import {StoresList} from "./pages/Authorized/StoresList";
-import {Store, StorePage} from "./pages/Authorized/Store";
-
+import {StorePage} from "./pages/Authorized/Store";
 import NotFoundPage from "./pages/NotFoundPage";
 import {StoreNavigation} from "./pages/Authorized/StoreNavigation";
 import {Dashboard} from "./pages/Authorized/Dashboard";
@@ -16,6 +13,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import CreateStore from "./pages/Authorized/CreateStore";
 import {StoresRoot} from "./components/Stores/StoresRoot";
 import {storeDetailsLoader} from "./utils/stores";
+import {AllProducts} from "./components/Products/AllProducts";
+import {productDetailsLoader} from "./utils/products";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +63,19 @@ const router = createBrowserRouter([
                                     ]
                             }
                             ]
+                    },
+                    {
+                        path: 'products',
+                        element: <Outlet />,
+                        id: 'products-outlet',
+                        loader: productDetailsLoader,
+                        children: [
+                            {
+                                index: true,
+                                element: <AllProducts />,
+                            }
+
+                        ]
                     },
                     {
                         path: 'create',

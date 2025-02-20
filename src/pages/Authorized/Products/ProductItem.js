@@ -1,9 +1,12 @@
 import styles from './ProductItem.module.css'
 import CarbIcon from "../../../components/CarbIcon/CarbIcon";
+import {NavLink} from "react-router-dom";
+import { MdModeEdit } from "react-icons/md";
 
-export default function ProductItem({productData}) {
+export default function ProductItem({productData,editMode}) {
     return (
         <div className={styles.productItem}>
+        <NavLink to={`${productData.id}/edit`} className={styles.productEdit}><MdModeEdit /></NavLink>
         <p className={styles.productCategory}> {productData.category}</p>
         <div className={styles.productInfoContainer}>
             <h1 className={styles.productTitle}>{productData.name}</h1>

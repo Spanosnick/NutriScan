@@ -6,14 +6,14 @@ import ToggleButton from 'react-toggle-button'
 
 export function HoursAddition({onSubmit,defaultHours}) {
     const [hoursOpen, setHoursOpen] = useState(defaultHours);
-    console.log(hoursOpen)
+
 
     function inputHandler(day, type, event){
 
         const inputValue = event.target.value;
-        console.log(day,type,inputValue)
+
         const index = hoursOpen.findIndex((array_day)=> array_day.day === day);
-        console.log(index)
+
         if(type === 'open') {
             setHoursOpen([...hoursOpen.slice(0, index), {
                 ...hoursOpen[index],
@@ -29,7 +29,7 @@ export function HoursAddition({onSubmit,defaultHours}) {
 
 
     function updateDocumentHours(){
-        console.log(hoursOpen)
+
         onSubmit(hoursOpen);
     }
 

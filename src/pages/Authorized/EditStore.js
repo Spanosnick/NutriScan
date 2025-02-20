@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './EditStore.module.css';
 import {NavLink, useNavigate, useRouteLoaderData} from "react-router-dom";
 import CreateStore from "./CreateStore";
@@ -9,9 +9,12 @@ import {FaEdit} from "react-icons/fa";
 export default function EditStore() {
     const data = useRouteLoaderData('store-outlet');
     const navigation = useNavigate();
-    if (data.userId === auth?.currentUser?.uid){
-        navigation('/app/stores/');
-    }
+    useEffect(()=>{
+        if (data.userId !== auth.currentUser.uid){
+            navigation('/app/stores/');
+        }
+    },[])
+
     return (
         <div  className={styles.editContainer}>
             <CreateStore editMode={true}/>

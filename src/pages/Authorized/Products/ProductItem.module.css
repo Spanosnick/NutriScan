@@ -27,6 +27,15 @@
     }
 
 }
+.productEdit{
+    position: absolute;
+    top: 0;
+    left: .5em;
+    color: var(--primary-black);
+    padding: 0.2em  ;
+    font-size: .9em;
+
+}
 
 .productCategory{
     position: absolute;

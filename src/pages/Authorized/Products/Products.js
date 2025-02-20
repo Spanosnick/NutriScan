@@ -5,11 +5,11 @@ import {useRef, forwardRef, useState} from "react";
 import {Input} from "../../../components/Input/Input";
 
 
-export default function Products({products = dummyProducts}) {
+export default function Products({products = dummyProducts,editMode = false}) {
 
     // We must get the products with query from firestore
     return (<div className={styles.productsList}>
-        { products.length > 0  && products.map((item, index) => <ProductItem key={index} productData={item}/>)}
+        { products.length > 0  && products.map((item, index) => <ProductItem key={index} editMode={editMode} productData={item}/>)}
     </div>);
 }
 
