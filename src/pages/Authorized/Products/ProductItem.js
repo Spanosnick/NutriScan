@@ -10,9 +10,9 @@ export default function ProductItem({productData}) {
             <p className={styles.productDescription}>{productData.description}</p>
         </div>
         <div className={styles.nutrients_container}>
-            <CarbIcon category={'carbs'} value={'200'}/>
-            <CarbIcon category={'protein'} value={'200'}/>
-            <CarbIcon category={'fat'} value={'200'}/>
+            <CarbIcon category={'carbs'} value={productData.carbs}/>
+            <CarbIcon category={'protein'} value={productData.protein}/>
+            <CarbIcon category={'fat'} value={productData.fat}/>
         </div>
         <div className={styles.caloriesContainer}>
         <p>Calories: {productData.calories} cal </p>

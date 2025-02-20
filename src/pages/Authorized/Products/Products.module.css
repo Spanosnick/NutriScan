@@ -12,11 +12,16 @@
     position: relative;
     width: 100%;
 }
+.actionBtnContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
 
 .addProductModalBtn {
-    position: absolute !important;
-    top: -67px !important;
-    right: 0 !important;
+
     height: 40px !important;
     width: 40px !important;
     border-radius: 50% !important;
@@ -27,9 +32,10 @@
 
 .productModal {
     width: 60%;
-    min-height: 500px;
+    min-height: 350px;
     border-radius: 2em;
     background-color: #ffffff;
+    border: none;
 }
 
 .productModalInfos {
@@ -64,5 +70,22 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+}
+.actionBtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.actionBtnContainer button{
+    width: 45%;
+    margin: .5em auto ;
+}
+.actionBtnContainer .closeBtn{
+    background-color: #d90909;
+    color: white;
+}
+.actionBtnContainer .closeBtn:hover{
+    background-color: #830404;
 }
 

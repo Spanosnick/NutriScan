@@ -1,7 +1,9 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { getFirestore, doc, getDoc,setDoc,deleteDoc,updateDoc} from "firebase/firestore";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+    getFirestore, doc, getDoc, setDoc, deleteDoc, updateDoc, collection, where, getDocs,query
+} from "firebase/firestore";
+import {signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -45,13 +47,14 @@ export async function setDocumentById(collectionName, docId, updatedData, merge 
     try {
         if (merge) {
             await setDoc(doc(db, collectionName, docId), updatedData, {merge: true});
-        }else {
+        } else {
             await setDoc(doc(db, collectionName, docId), updatedData);
         }
     } catch (error) {
         console.error("Error updating document:", error);
     }
 }
+
 export async function updateDocumentById(collectionName, docId, updatedData) {
     try {
         await updateDoc(doc(db, collectionName, docId), updatedData);
@@ -60,3 +63,27 @@ export async function updateDocumentById(collectionName, docId, updatedData) {
     }
 }
 
+export async function dynamicFirestoreQuery(collectionRef, conditions = []) {
+    try {
+        // Apply conditions if any
+        let q = query(collectionRef);
+        conditions.forEach(condition => {
+            const [field, operator, value] = condition;
+            q = query(q, where(field, operator, value));
+        });
+
+        // Execute the query
+        const querySnapshot = await getDocs(q);
+
+        // Map results to an array
+        const results = [];
+        querySnapshot.forEach(doc => {
+            results.push({ id: doc.id, ...doc.data() });
+        });
+
+        return results;
+    } catch (error) {
+        console.error("Error querying Firestore:", error);
+        return [];
+    }
+}

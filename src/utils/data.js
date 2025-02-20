@@ -117,11 +117,9 @@ export const dummyProducts = [
         'name': 'Product 1',
         'description': 'Product 1 description',
         'category': 'sandwich',
-        'nutrients_data':{
-            'protein' : 150,
-            'fat': 200,
-            'carbs': 300,
-        },
+        'protein' : 150,
+        'fat': 200,
+        'carbs': 300,
         'calories': 200
     },
     {
@@ -130,11 +128,9 @@ export const dummyProducts = [
         'name': 'Product 1',
         'description': 'Product 1 description',
         'category': 'sandwich',
-        'nutrients_data':{
-            'protein' : 150,
-            'fat': 200,
-            'carbs': 300,
-        },
+        'protein' : 150,
+        'fat': 200,
+        'carbs': 300,
         'calories': 200
     },
     {
@@ -143,11 +139,9 @@ export const dummyProducts = [
         'name': 'Product 1',
         'description': 'Product 1 description',
         'category': 'sandwich',
-        'nutrients_data':{
-            'protein' : 150,
-            'fat': 200,
-            'carbs': 300,
-        },
+        'protein' : 150,
+        'fat': 200,
+        'carbs': 300,
         'calories': 200
     },
     {
@@ -156,11 +150,9 @@ export const dummyProducts = [
         'name': 'Product 1',
         'description': 'Product 1 description',
         'category': 'sandwich',
-        'nutrients_data':{
-            'protein' : 150,
-            'fat': 200,
-            'carbs': 300,
-        },
+        'protein' : 150,
+        'fat': 200,
+        'carbs': 300,
         'calories': 200
     }
     ,    {
@@ -169,11 +161,9 @@ export const dummyProducts = [
         'name': 'Product 1',
         'description': 'Product 1 description',
         'category': 'sandwich',
-        'nutrients_data':{
-            'protein' : 150,
-            'fat': 200,
-            'carbs': 300,
-        },
+        'protein' : 150,
+        'fat': 200,
+        'carbs': 300,
         'calories': 200
     },
     {
@@ -182,11 +172,9 @@ export const dummyProducts = [
         'name': 'Product 1',
         'description': 'Product 1 description',
         'category': 'Wrap ',
-        'nutrients_data':{
-            'protein' : 150,
-            'fat': 200,
-            'carbs': 300,
-        },
+        'protein' : 150,
+        'fat': 200,
+        'carbs': 300,
         'calories': 200
     }
 ]
