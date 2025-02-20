@@ -1,7 +1,7 @@
 import styles from './Products.module.css'
 import ProductItem from "./ProductItem";
 import {dummyProducts} from "../../../utils/data";
-import {useRef, forwardRef, useState} from "react";
+import {useRef, forwardRef, useState, useEffect} from "react";
 import {Input} from "../../../components/Input/Input";
 
 
@@ -32,8 +32,6 @@ export function ProductModal({editMode = false, productInfo,onCreate}) {
     const fatRef = useRef();
     const carbsRef = useRef();
     const caloriesRef = useRef();
-
-
 
     const modalRef = useRef(null);
 

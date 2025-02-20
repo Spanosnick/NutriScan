@@ -1,6 +1,6 @@
 import {redirect} from "react-router-dom";
 import {addDoc , collection} from "firebase/firestore";
-import {db, auth, getDocumentById, dynamicFirestoreQuery} from "../firebase";
+import {db, auth, dynamicFirestoreQuery} from "../firebase";
 const storesCollectionRef = collection(db, "stores");
 const productsCollectionRef = collection(db, "products");
 

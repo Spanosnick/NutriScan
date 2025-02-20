@@ -178,3 +178,24 @@ export const dummyProducts = [
         'calories': 200
     }
 ]
+
+export const productCategories = [
+    {
+        value: 'wrap',
+        text: 'Αραβική'
+    },
+        {
+            value: 'sandwich',
+            text: 'Σαντουιτς'
+        },
+
+        {
+            value: 'toast',
+            text: 'Τοστ'
+        },
+
+        {
+            value: 'sweet',
+            text: 'Γλυκό'
+        },
+]

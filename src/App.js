@@ -13,8 +13,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import CreateStore from "./pages/Authorized/CreateStore";
 import {StoresRoot} from "./components/Stores/StoresRoot";
 import {storeDetailsLoader} from "./utils/stores";
-import {AllProducts} from "./components/Products/AllProducts";
+import {ProductsPage} from "./components/Products/AllProducts";
 import {productDetailsLoader} from "./utils/products";
+import EditProductPage from "./pages/Authorized/Products/EditProductPage";
 
 const router = createBrowserRouter([
     {
@@ -72,7 +73,11 @@ const router = createBrowserRouter([
                         children: [
                             {
                                 index: true,
-                                element: <AllProducts />,
+                                element: <ProductsPage />,
+                            },
+                            {
+                                path: ':productId/edit',
+                                element: <EditProductPage />,
                             }
 
                         ]
