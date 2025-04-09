@@ -1,11 +1,13 @@
 import '../../../common/components/LoginForm/LoginForm.css'
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {useAuth} from "../../../contexts/AuthContext";
 import {onAuthStateChanged, signInWithPopup} from "firebase/auth";
 import {auth, googleAuthProvider} from "../../../firebase";
 import {FcGoogle} from "react-icons/fc";
 import {Loading} from "../../../common/components/Loading/Loading";
+import {useDispatch, useSelector} from "react-redux";
+import {clearUser, setUser} from "../slice/authSlice";
+
 
 export default function Login(props) {
     const [ dynamicActive,setDynamicActive ] = useState({loginBtn:'',registerBtn:'active'});
@@ -16,13 +18,11 @@ export default function Login(props) {
     const registerEmail = useRef();
     const registerPassword = useRef();
     const registerPasswordConfirm = useRef();
-
-
-
-
-    const { signup,login } = useAuth();
+    const dispatch = useDispatch();
     const navigation = useNavigate();
     let [loading, setLoading] = useState(false);
+
+    const authState = useSelector((state) => state.auth);
 
     function toogleActive(){
         if(dynamicActive.loginBtn === 'active'){
@@ -39,7 +39,7 @@ export default function Login(props) {
         try {
             setError('');
             setLoading(true);
-            await login(email, password);
+            // await login(email, password);
             navigation('/app');
         }catch (e) {
             setError('Failed to login. Please check your email and password');
@@ -52,14 +52,6 @@ export default function Login(props) {
         setLoading(true);
         try {
             await signInWithPopup(auth, googleAuthProvider);
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    navigation('/app');
-                } else {
-                    console.log("No user signed in");
-                }
-            });
-
         } catch (error) {
             console.error("Error signing in:", error);
         }
@@ -80,7 +72,7 @@ export default function Login(props) {
         try {
             setError('');
             setLoading(true);
-            await signup(email, password);
+            // await signup(email, password);
         }catch (e) {
             setError('Failed to create an account');
         }
@@ -88,12 +80,24 @@ export default function Login(props) {
 
     }
 
-    if (loading) {
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                dispatch(setUser({ uid: user.uid, email: user.email }));
+                navigation('/app');
+            } else {
+                dispatch(clearUser());
+            }
+
+        });
+
+        return () => unsubscribe();
+    }, [dispatch]);
+
+
+    if (authState.loading) {
         return  <Loading/>
     }
-
-
-
 
     return (
         <section className='loginSection'>

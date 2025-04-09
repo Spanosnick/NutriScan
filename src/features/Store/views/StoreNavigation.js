@@ -1,19 +1,20 @@
 import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import './StoreNavigation.css';
-import {useAuth} from "../../../contexts/AuthContext";
 import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {logoutUser} from "../../Login/slice/authSlice";
 
 
 export function StoreNavigation() {
     const [error, setError] = useState('');
-    const { logout } = useAuth();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     async function logoutHandler(){
         console.log('Logout');
         setError('');
         try {
-            await logout();
+            dispatch(logoutUser());
             navigate('/login');
 
         }catch (e){
