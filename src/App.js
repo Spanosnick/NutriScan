@@ -1,31 +1,31 @@
 import './App.css';
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
-import {Home} from "./pages/Home";
-import Login from "./pages/Login";
-import {StoresList} from "./pages/Authorized/StoresList";
-import {StorePage} from "./pages/Authorized/Store";
-import NotFoundPage from "./pages/NotFoundPage";
-import {StoreNavigation} from "./pages/Authorized/StoreNavigation";
-import {Dashboard} from "./pages/Authorized/Dashboard";
-import RootLayout from "./pages/RootLayout";
-import EditStore from "./pages/Authorized/EditStore";
-import ProtectedRoute from "./components/ProtectedRoute";
-import CreateStore from "./pages/Authorized/CreateStore";
-import {StoresRoot} from "./components/Stores/StoresRoot";
-import {storeDetailsLoader} from "./utils/stores";
-import {ProductsPage} from "./components/Products/AllProducts";
-import {productDetailsLoader} from "./utils/products";
-import EditProductPage from "./pages/Authorized/Products/EditProductPage";
+import {Homepage} from "./features/Homepage/views/homepage";
+import Login from "./features/Login/views/login";
+import {StoresList} from "./features/Store/views/StoresList";
+import {StorePage} from "./features/Store/views/Store";
+import NotFoundPage from "./common/views/notFoundPage";
+import {StoreNavigation} from "./features/Store/views/StoreNavigation";
+import {Dashboard} from "./features/Dashboard/views/Dashboard";
+import EditStore from "./features/Store/views/EditStore";
+import ProtectedRoute from "./common/components/ProtectedRoute";
+import CreateStore from "./features/Store/views/CreateStore";
+import {StoresRoot} from "./common/components/Stores/StoresRoot";
+import {storeDetailsLoader} from "./common/utils/stores";
+import {ProductsPage} from "./common/components/Products/AllProducts";
+import {productDetailsLoader} from "./common/utils/products";
+import EditProductPage from "./features/Product/views/EditProduct/EditProductPage";
+import React from "react";
 
 const router = createBrowserRouter([
     {
         path: '',
-        element: <RootLayout/>,
+        element: <Outlet/>,
         errorElement: <NotFoundPage/>,
         children: [
             {
                 index: true,
-                element: <Home/>
+                element: <Homepage/>
             },
             {
                 path: 'login',
