@@ -1,14 +1,34 @@
 // components/ProtectedRoute.js
-import {Navigate} from "react-router-dom";
-import {useAuth} from "../../contexts/AuthContext";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {onAuthStateChanged} from "firebase/auth";
+import {auth} from "../../firebase";
+import {clearUser, setUser} from "../../features/Login/slice/authSlice";
+import {Navigate, useNavigate} from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-    const { currentUser } = useAuth(); // Assuming `currentUser` exists in the context when authenticated
+    const dispatch = useDispatch();
+    const authState = useSelector((state) => state.auth);
+    console.log(authState)
+    const navigation = useNavigate();
 
-    if (!currentUser) {
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                dispatch(setUser({ uid: user.uid, email: user.email }));
+                navigation('/app');
+            } else {
+                dispatch(clearUser());
+            }
+            
+        });
+
+        return () => unsubscribe();
+    }, [dispatch]);
+
+    if (!authState.user) {
         return <Navigate to="/login" replace />;
     }
-    // Render the protected content if authenticated
     return children;
 };
 
