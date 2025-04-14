@@ -95,7 +95,7 @@ export default function Login(props) {
     }, [dispatch]);
 
 
-    if (authState.loading) {
+    if (loading) {
         return  <Loading/>
     }
 
