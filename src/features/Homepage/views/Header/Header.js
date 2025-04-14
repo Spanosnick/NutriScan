@@ -1,20 +1,16 @@
 import React from "react";
-import "./Header.css";
-import {Link, NavLink} from "react-router-dom";
+import "../../../../common/components/Menu/Header.css";
+import {Menu} from "../../../../common/components/Menu/menu";
 
 
 export function Header() {
+    const menuItems = [
+        {name: 'Τί είναι', link: '#about',className: 'menuItem'},
+        {name: 'Πως Βοηθάει', link: '#benefits',className: 'menuItem'},
+        {name: 'Επικοινωνία', link: '#contact',className: 'menuItem'},
+        {name: 'Σύνδεση', link: 'login',className: 'loginBtn-alternative', isButton: true},
+    ]
     return (
-        <div className='nutriNav'>
-            <div className='firstPart'>
-                <a className='nutriScanTitle' href='#home'>Nutri<span>Scan</span></a>
-            </div>
-            <div className='secondPart'>
-                <a  href='#about'>Τί είναι </a>
-                <a href='#benefits'>Πως Βοηθάει </a>
-                <a href='#contact'>Επικοινωνία</a>
-                <NavLink className='loginBtn-alternative' to={'login'}>Σύνδεση</NavLink>
-            </div>
-        </div>
+        <Menu  menuItems={menuItems} mobileView={768} />
     );
 }
