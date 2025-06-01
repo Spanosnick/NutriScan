@@ -1,9 +1,17 @@
 # Getting Started with Create React App
+You can check the project live at [https://nutriscan.nickport.com]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 1) Create an .env file in the root of the project and add the credentials from the firebase project.
 2) You need all the variables from the .env_example
+3) Change accordingly the homepage from package.json if you want to change the host url.
+
+
+## Firebase Basic Changes 
+ 1) Go to your Firebase Console and select your project->authentication->settings and add the url
+which you have in the homepage of package.json to give permission if you use google login etc
+
 
 ## Available Scripts
 

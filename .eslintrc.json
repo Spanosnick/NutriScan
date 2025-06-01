@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // Best Practices
+    "eqeqeq": "warn",
+    "curly": "warn",
+    "no-multi-spaces": "warn",
+    "no-eval": "warn",
+    "no-implied-eval": "warn",
+    "no-invalid-this": "warn",
+    "no-throw-literal": "warn",
+
+    // Variables
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-undef": "warn",
+
+    // Stylistic
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "single"],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "comma-dangle": ["warn", "never"],
+    "no-trailing-spaces": "warn",
+    "space-before-blocks": ["warn", "always"],
+    "keyword-spacing": ["warn", { "before": true, "after": true }],
+    "space-infix-ops": "warn",
+
+    // ECMAScript 6
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "arrow-spacing": ["warn", { "before": true, "after": true }],
+
+    // Others
+    "object-curly-spacing": ["warn", "always"],
+    "array-bracket-spacing": ["warn", "never"]
+  }
+}
