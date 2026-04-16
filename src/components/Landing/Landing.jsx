@@ -1,4 +1,3 @@
-import React from 'react';
 import './Landing.css';
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';

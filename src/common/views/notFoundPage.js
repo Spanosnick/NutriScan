@@ -1,20 +1,20 @@
-import {useEffect} from "react";
-import {useNavigate,} from "react-router-dom";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function NotFoundPage() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
+  useEffect(() => {
 
-        setTimeout(() => {
-            navigate(-1);
-        }, 1000)
-    }, []);
+    setTimeout(() => {
+      navigate(-1);
+    }, 1000);
+  }, []);
 
-    return (
-        <section className='aboutSection' id='about'>
-            <h2>NOT FOUND PAGE</h2>
-        </section>
-    );
+  return (
+    <section className='aboutSection' id='about'>
+      <h2>NOT FOUND PAGE</h2>
+    </section>
+  );
 }

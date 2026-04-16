@@ -1,20 +1,19 @@
-import React from "react";
-import "./AboutSection.css";
+import './AboutSection.css';
 
 export function AboutSection() {
-    return (
-        <section id='about' className='aboutSection'>
-            <div className='aboutMain'>
-                <h3>Tι είναι το <span>NutriScanner?</span></h3>
-                <p>Το <span>NutriScanner</span> είναι μια εφαρμογή που επιτρέπει στις επιχειρήσεις που παρασκευάζουν
+  return (
+    <section id='about' className='aboutSection'>
+      <div className='aboutMain'>
+        <h3>Tι είναι το <span>NutriScanner?</span></h3>
+        <p>Το <span>NutriScanner</span> είναι μια εφαρμογή που επιτρέπει στις επιχειρήσεις που παρασκευάζουν
                     χειροποίητα προϊόντα
                     (όπως σάντουιτς, τορτίγιες, σαλάτες κ.ά.) να προσθέτουν τις διατροφικές αξίες των προϊόντων τους
                     (πρωτεΐνες, υδατάνθρακες, λίπη, θερμίδες κ.λπ.). </p>
 
-                <p>Η εφαρμογή δημιουργεί αυτόματα έναν QR code, τον
+        <p>Η εφαρμογή δημιουργεί αυτόματα έναν QR code, τον
                     οποίο μπορούν να σκανάρουν οι πελάτες για να δουν τις διατροφικές πληροφορίες του προϊόντος που
                     επιλέγουν.</p>
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
@@ -9,7 +9,7 @@ const BUSINESS_TYPES = [
   { value: 'deli', label: 'Deli / Sandwich shop' },
   { value: 'cafeteria', label: 'Cafeteria / Coffee shop' },
   { value: 'salad_bar', label: 'Salad bar / Σπιτικά φαγητά' },
-  { value: 'other', label: 'Άλλο' },
+  { value: 'other', label: 'Άλλο' }
 ];
 
 const INITIAL_FORM = {
@@ -18,7 +18,7 @@ const INITIAL_FORM = {
   phone: '',
   businessName: '',
   businessType: '',
-  message: '',
+  message: ''
 };
 
 export default function LeadForm() {
@@ -39,7 +39,7 @@ export default function LeadForm() {
     try {
       await addDoc(collection(db, 'leads'), {
         ...form,
-        createdAt: serverTimestamp(),
+        createdAt: serverTimestamp()
       });
       setSuccess(true);
     } catch (err) {

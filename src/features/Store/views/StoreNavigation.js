@@ -7,41 +7,41 @@ import NotificationModal from '../../../Shared/views/NotificationModal/notificat
 
 
 export function StoreNavigation() {
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    async function logoutHandler(){
-        console.log('Logout');
-        setError('');
-        try {
-            dispatch(logoutUser());
-            navigate('/login');
+  async function logoutHandler() {
+    console.log('Logout');
+    setError('');
+    try {
+      dispatch(logoutUser());
+      navigate('/login');
 
-        }catch (e){
-            setError('Failed to logout');
-            console.log(e);
-        }
-
+    } catch (e) {
+      setError('Failed to logout');
+      console.log(e);
     }
 
-    return (
-        <>
-            <div className='nutriNav alternative'>
-                <div className='firstPart'>
-                    <a className='nutriScanTitle' href='#home'>Nutri<span>Scan</span></a>
-                </div>
-                <div className='secondPart'>
-                    <NavLink to={''}>Αρχική</NavLink>
-                    <NavLink to={'stores'}>Καταστήματα</NavLink>
-                    <NavLink to={'create'} relative={"path"}>Δημιουργία</NavLink>
-                    <button onClick={logoutHandler} className={'logoutBtn'}  >Αποσύνδεση</button>
-                </div>
-            </div>
-            {error && <div className='error-message'>{error}</div>}
-            <NotificationModal />
-            <Outlet/>
-        </>
-    )
-        ;
+  }
+
+  return (
+    <>
+      <div className='nutriNav alternative'>
+        <div className='firstPart'>
+          <a className='nutriScanTitle' href='#home'>Nutri<span>Scan</span></a>
+        </div>
+        <div className='secondPart'>
+          <NavLink to={''}>Αρχική</NavLink>
+          <NavLink to={'stores'}>Καταστήματα</NavLink>
+          <NavLink to={'create'} relative={'path'}>Δημιουργία</NavLink>
+          <button onClick={logoutHandler} className={'logoutBtn'} >Αποσύνδεση</button>
+        </div>
+      </div>
+      {error && <div className='error-message'>{error}</div>}
+      <NotificationModal />
+      <Outlet/>
+    </>
+  )
+  ;
 }

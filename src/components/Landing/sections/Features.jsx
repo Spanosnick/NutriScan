@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame, AlertTriangle, LayoutDashboard, QrCode, Smartphone, BarChart3 } from 'lucide-react';
 
@@ -6,33 +5,33 @@ const features = [
   {
     icon: <Flame size={20} />,
     title: 'Διατροφικές αξίες',
-    desc: 'Θερμίδες, πρωτεΐνες, υδατάνθρακες και λίπη για κάθε προϊόν.',
+    desc: 'Θερμίδες, πρωτεΐνες, υδατάνθρακες και λίπη για κάθε προϊόν.'
   },
   {
     icon: <AlertTriangle size={20} />,
     title: 'Αλλεργιογόνα & ετικέτες',
-    desc: 'Vegan, χωρίς γλουτένη, lactose-free και άλλες διατροφικές ετικέτες.',
+    desc: 'Vegan, χωρίς γλουτένη, lactose-free και άλλες διατροφικές ετικέτες.'
   },
   {
     icon: <LayoutDashboard size={20} />,
     title: 'Εύκολη διαχείριση',
-    desc: 'Πρόσθεσε, επεξεργάσου ή διάγραψε προϊόντα εύκολα από το dashboard.',
+    desc: 'Πρόσθεσε, επεξεργάσου ή διάγραψε προϊόντα εύκολα από το dashboard.'
   },
   {
     icon: <QrCode size={20} />,
     title: 'Μοναδικό QR ανά κατάστημα',
-    desc: 'Κάθε κατάστημά σου αποκτά το δικό του QR code για άμεση πρόσβαση.',
+    desc: 'Κάθε κατάστημά σου αποκτά το δικό του QR code για άμεση πρόσβαση.'
   },
   {
     icon: <Smartphone size={20} />,
     title: 'Mobile-friendly για πελάτες',
-    desc: 'Το menu των προϊόντων είναι βελτιστοποιημένο για κινητό, χωρίς app.',
+    desc: 'Το menu των προϊόντων είναι βελτιστοποιημένο για κινητό, χωρίς app.'
   },
   {
     icon: <BarChart3 size={20} />,
     title: 'Analytics (σύντομα)',
-    desc: 'Δες ποια προϊόντα σκανάρουν περισσότερο οι πελάτες σου.',
-  },
+    desc: 'Δες ποια προϊόντα σκανάρουν περισσότερο οι πελάτες σου.'
+  }
 ];
 
 export default function Features() {

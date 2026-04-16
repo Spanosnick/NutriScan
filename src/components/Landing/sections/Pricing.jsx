@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
@@ -12,10 +11,10 @@ const plans = [
       '1 κατάστημα',
       'Βασικές διατροφικές πληροφορίες',
       'QR code καταστήματος',
-      'Mobile-friendly εμφάνιση',
+      'Mobile-friendly εμφάνιση'
     ],
     cta: 'Ξεκίνα δωρεάν',
-    popular: false,
+    popular: false
   },
   {
     name: 'Pro',
@@ -26,10 +25,10 @@ const plans = [
       '1 κατάστημα',
       'Αλλεργιογόνα & ετικέτες',
       'Analytics σκαναρισμάτων',
-      'Προτεραιότητα υποστήριξης',
+      'Προτεραιότητα υποστήριξης'
     ],
     cta: 'Ξεκίνα με Pro',
-    popular: true,
+    popular: true
   },
   {
     name: 'Business',
@@ -40,11 +39,11 @@ const plans = [
       'Πολλαπλά καταστήματα',
       'Premium analytics',
       'Custom branding',
-      'Dedicated support',
+      'Dedicated support'
     ],
     cta: 'Επικοινώνησε μαζί μας',
-    popular: false,
-  },
+    popular: false
+  }
 ];
 
 export default function Pricing() {

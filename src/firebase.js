@@ -1,89 +1,89 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import {
-    getFirestore, doc, getDoc, setDoc, deleteDoc, updateDoc, collection, where, getDocs,query
-} from "firebase/firestore";
-import {signInWithPopup, GoogleAuthProvider} from "firebase/auth";
+  getFirestore, doc, getDoc, setDoc, deleteDoc, updateDoc, where, getDocs, query
+} from 'firebase/firestore';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const app = firebase.initializeApp({
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 });
 
 // Initialize Firebase
-export const auth = app.auth()
-export default app
+export const auth = app.auth();
+export default app;
 
 export const db = getFirestore(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 
 
 export async function getDocumentById(collectionName, docId) {
-    const docRef = doc(db, collectionName, docId);
-    const docSnap = await getDoc(docRef);
+  const docRef = doc(db, collectionName, docId);
+  const docSnap = await getDoc(docRef);
 
-    if (docSnap.exists()) {
-        return docSnap.data();
-    } else {
-        console.log("No such document!");
-        return null;
-    }
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else {
+    console.log('No such document!');
+    return null;
+  }
 }
 
 export async function deleteDocumentById(collectionName, docId) {
-    try {
-        await deleteDoc(doc(db, collectionName, docId));
-        console.log(`Document '${docId}' deleted successfully.`);
-    } catch (error) {
-        console.error("Error deleting document:", error);
-    }
+  try {
+    await deleteDoc(doc(db, collectionName, docId));
+    console.log(`Document '${docId}' deleted successfully.`);
+  } catch (error) {
+    console.error('Error deleting document:', error);
+  }
 }
 
 export async function setDocumentById(collectionName, docId, updatedData, merge = false) {
-    try {
-        if (merge) {
-            await setDoc(doc(db, collectionName, docId), updatedData, {merge: true});
-        } else {
-            await setDoc(doc(db, collectionName, docId), updatedData);
-        }
-    } catch (error) {
-        console.error("Error updating document:", error);
+  try {
+    if (merge) {
+      await setDoc(doc(db, collectionName, docId), updatedData, { merge: true });
+    } else {
+      await setDoc(doc(db, collectionName, docId), updatedData);
     }
+  } catch (error) {
+    console.error('Error updating document:', error);
+  }
 }
 
 export async function updateDocumentById(collectionName, docId, updatedData) {
-    try {
-        await updateDoc(doc(db, collectionName, docId), updatedData);
-    } catch (error) {
-        console.error("Error updating document:", error);
-    }
+  try {
+    await updateDoc(doc(db, collectionName, docId), updatedData);
+  } catch (error) {
+    console.error('Error updating document:', error);
+  }
 }
 
 export async function dynamicFirestoreQuery(collectionRef, conditions = []) {
-    try {
-        // Apply conditions if any
-        let q = query(collectionRef);
-        conditions.forEach(condition => {
-            const [field, operator, value] = condition;
-            q = query(q, where(field, operator, value));
-        });
+  try {
+    // Apply conditions if any
+    let q = query(collectionRef);
+    conditions.forEach(condition => {
+      const [field, operator, value] = condition;
+      q = query(q, where(field, operator, value));
+    });
 
-        // Execute the query
-        const querySnapshot = await getDocs(q);
+    // Execute the query
+    const querySnapshot = await getDocs(q);
 
-        // Map results to an array
-        const results = [];
-        querySnapshot.forEach(doc => {
-            results.push({ id: doc.id, ...doc.data() });
-        });
+    // Map results to an array
+    const results = [];
+    querySnapshot.forEach(doc => {
+      results.push({ id: doc.id, ...doc.data() });
+    });
 
-        return results;
-    } catch (error) {
-        console.error("Error querying Firestore:", error);
-        return [];
-    }
+    return results;
+  } catch (error) {
+    console.error('Error querying Firestore:', error);
+    return [];
+  }
 }

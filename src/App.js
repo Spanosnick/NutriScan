@@ -15,7 +15,6 @@ import { storeDetailsLoader } from './common/utils/stores';
 import { ProductsPage } from './common/components/Products/AllProducts';
 import { productDetailsLoader } from './common/utils/products';
 import EditProductPage from './features/Product/views/EditProduct/EditProductPage';
-import React from 'react';
 
 const router = createBrowserRouter([
   {
