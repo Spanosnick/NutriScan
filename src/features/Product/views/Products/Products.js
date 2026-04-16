@@ -1,8 +1,8 @@
-import styles from './Products.module.css'
-import ProductItem from "../ProductItem/ProductItem";
-import {dummyProducts} from "../../../../common/utils/data";
-import {useRef, useState} from "react";
-import {Input} from "../../../../common/components/Input/Input";
+import styles from './Products.module.css';
+import ProductItem from '../ProductItem/ProductItem';
+import { dummyProducts } from '../../../../common/utils/data';
+import { useRef, useState } from 'react';
+import { Input } from '../../../../common/components/Input/Input';
 
 
 export default function Products({products = dummyProducts,editMode = false}) {

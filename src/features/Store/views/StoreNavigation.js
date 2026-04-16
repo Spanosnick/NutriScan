@@ -1,8 +1,9 @@
-import {NavLink, Outlet, useNavigate} from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import './StoreNavigation.css';
-import {useState} from "react";
-import {useDispatch} from "react-redux";
-import {logoutUser} from "../../Login/slice/authSlice";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../Login/slice/authSlice';
+import NotificationModal from '../../../Shared/views/NotificationModal/notificationModal';
 
 
 export function StoreNavigation() {
@@ -38,6 +39,7 @@ export function StoreNavigation() {
                 </div>
             </div>
             {error && <div className='error-message'>{error}</div>}
+            <NotificationModal />
             <Outlet/>
         </>
     )
